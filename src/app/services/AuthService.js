@@ -35,7 +35,7 @@ angular
 
       //$location.path('/');
       authManager.unauthenticate();
-      $state.go('home');
+      $state.go('login');
       //console.log(authManager.isAuthenticated());
     }
 
