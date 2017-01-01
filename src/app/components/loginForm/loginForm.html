@@ -1,35 +1,50 @@
-<div class="main">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-            <div class="panel panel-info" >
-                <div class="panel-heading">
-                    <div class="panel-title">Sign In {{vm.hello}}</div>
-                    <!--div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div-->
-                </div>     
-                <div style="padding-top:30px" class="panel-body" >
-                    <form id="loginform" class="form-horizontal" role="form">      
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input id="login-email" type="text" class="form-control" name="email" value="" placeholder="email" ng-model="vm.formLogin.email">                                        
+<div class="container">
+    <div layout="row" layout-align="center center" style="margin-top: 15px;">
+        
+        <div flex="40">
+
+            <md-toolbar class="" md-theme="greenTheme">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>Sign in {{vm.hello}}</span>
+                    </h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+
+            <md-content layout-padding>
+                <form id="loginform" class="form-horizontal" role="form">      
+                    <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                        <label>Email</label>
+                        <md-icon class="email"><i class="glyphicon glyphicon-envelope"></i></md-icon>
+                        <input required ng-model="vm.formLogin.email" name="email" type="email">
+                        <div ng-messages="vm.loginForm.email.$error" role="alert">
+                            <div ng-message="required">This is required.</div>
                         </div>
-                        <div style="margin-bottom: 25px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="login-password" type="password" class="form-control" name="password" placeholder="password" ng-model="vm.formLogin.password">
-                        </div>
-                        <!--div class="input-group">
-                            <div class="checkbox">
-                            <label>
-                                <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                            </label>
-                            </div>
-                        </div-->
-                        <!-- SUBMIT BUTTON -->
-                        <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="vm.clickLogin(vm.formLogin)">
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                        <label>Password</label>
+                        <md-icon class="password"><i class="glyphicon glyphicon-lock"></i></md-icon>
+                        <input ng-model="vm.formLogin.password" type="password">
+                    </md-input-container>
+                    <!-- SUBMIT BUTTON -->
+                    <div layout="column" md-theme="greenTheme">
+                        <!--<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="vm.clickLogin(vm.formLogin)">
                             <span class="glyphicon glyphicon-flash"></span> Submit!
-                        </button>
-                    </form>     
-                </div>                     
-            </div>  
+                        </button>-->
+                        <md-button class="md-raised md-primary" aria-label="Submit" ng-click="vm.clickLogin(vm.formLogin)">
+                            <span class="glyphicon glyphicon-flash"></span> Submit!
+                        </md-button>
+                    </div>
+                </form>    
+            </md-content>
+
+            <pre>{{vm.formLogin}}</pre>
+            <pre>{{vm.myToken}}</pre>
+
         </div>
-        <pre>{{vm.formLogin}}</pre>
-        <pre>{{vm.myToken}}</pre>
+
     </div>
+</div>

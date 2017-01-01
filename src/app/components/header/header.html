@@ -1,4 +1,4 @@
-<header class="header">
+<!--header class="header">
   <p class="header-title">
     <a ui-sref="home">Home</a>
     <a ui-sref="login" ng-if="!vm.isAuthenticated">Login</a>
@@ -7,5 +7,43 @@
     <div class="btn btn-default" ng-click="vm.logout()" ng-if="vm.isAuthenticated">logout</div>
     <!--div class="btn btn-default" ng-if="isAuthenticated">isAuth</div>
     <div class="btn btn-default" ng-if="!isAuthenticated">isNotAuth</div-->
-  </p>
-</header>
+  <!--/p>
+</header-->
+
+<md-toolbar>
+  <div layout="row" layout-align="center center">
+    <div flex-offset="5">
+      <md-button class="md-fab md-mini" aria-label="Home" ui-sref="home">
+        <span class="glyphicon glyphicon-home"></span>
+      </md-button>
+     
+    </div>
+
+    <div flex class="md-toolbar-tools">
+      <md-button aria-label="Dashboard" ui-sref="dashboard" ui-sref-active="active" ng-if="vm.isAuthenticated">
+        Dashboard
+      </md-button>
+    </div>
+
+    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">Welcome {{vm.username}} {{$root.isAuthenticated}}</span>
+    <span>
+      <md-button class="md-raised md-primary md-hue-1" aria-label="Login" ui-sref="login" ui-sref-active="active" ng-if="!vm.isAuthenticated">
+        Login
+      </md-button>
+    </span>
+    <span>
+      <md-button class="md-raised md-warn md-hue-2" aria-label="Logout" ng-click="vm.logout()" ng-if="vm.isAuthenticated">
+        Logout
+      </md-button>
+    </span>
+    <span flex-offset="5"></span>
+  </div>
+</md-toolbar>
+
+
+  <!--md-nav-bar md-selected-nav-item="currentNavItem">
+    <md-nav-item md-nav-click="goto('page1')" name="page1">Page One</md-nav-item>
+    <md-nav-item md-nav-sref="app.page2" name="page2">Page Two</md-nav-item>
+    <md-nav-item md-nav-href="#page3" name="page3">Page Three</md-nav-item>
+  </md-nav-bar-->
+
