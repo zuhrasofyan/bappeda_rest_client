@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'angular-storage', 'angular-jwt', 'ngMaterial'])
+  .module('app', ['ui.router', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ngMessages'])
   .run(function ($rootScope, $state, store, jwtHelper, $location, authManager){
     //authManager.checkAuthOnRefresh();
     //run check on each of refreshed state
@@ -22,4 +22,12 @@ angular
         //$location.path('/');
       }
     });
-  });
+  })
+  .config(function($mdThemingProvider){
+    $mdThemingProvider.theme('altTheme')
+      .primaryPalette('orange')
+      .accentPalette('green');
+    $mdThemingProvider.theme('greenTheme')
+      .primaryPalette('green')
+    //$mdThemingProvider.setDefaultTheme('altTheme');
+  })
