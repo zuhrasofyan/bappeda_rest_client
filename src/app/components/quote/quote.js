@@ -3,7 +3,7 @@ angular
   .component('componentQuote', {
     templateUrl: 'app/components/quote/quote.html',
     controller: quoteController,
-    controllerAs: 'vm'
+    controllerAs: 'quote'
   });
 
 function quoteController($http, store, UserService) {
@@ -49,6 +49,7 @@ function quoteController($http, store, UserService) {
     $http.get('http://localhost:1337/quote/protected').then(function success(response){
       //console.log('success');
       vm.privateQuote = response.data.quote;
+      //console.log(vm.privateQuote);
     });
     
     // $http({
