@@ -21,11 +21,11 @@
 
     <div flex class="md-toolbar-tools">
       <md-button aria-label="Dashboard" ui-sref="dashboard" ui-sref-active="active" ng-if="vm.isAuthenticated">
-        Dashboard
+        Beranda
       </md-button>
     </div>
 
-    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">Welcome {{vm.username}} {{$root.isAuthenticated}}</span>
+    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">Halo, {{vm.username}} {{$root.isAuthenticated}}</span>
     <span>
       <md-button class="md-raised md-primary md-hue-1" aria-label="Login" ui-sref="login" ui-sref-active="active" ng-if="!vm.isAuthenticated">
         Login
