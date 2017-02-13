@@ -6,6 +6,16 @@ angular
     controllerAs: 'vm'
   });
 
-function dashboardController() {
+function dashboardController(UserService) {
   vm = this;
+  //vm.isAuthenticated = $rootScope.isAuthenticated;
+
+  function getUser() {
+    var a = UserService.getCurrentUser();
+    return a;
+  }
+
+  vm.user = getUser();
+
+ 
 }
