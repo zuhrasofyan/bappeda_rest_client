@@ -1,5 +1,5 @@
 <section layout="row">
-  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
     <md-toolbar class="md-theme-indigo">
       <h1 class="md-toolbar-tools">Sidenav Left</h1>
     </md-toolbar>
@@ -8,6 +8,22 @@
         This sidenav is locked open on your device. To go back to the default behavior,
         narrow your display.
       </p>
+      <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="home.dashboard">
+        <div hide-sm hide-md class="md-tile-content">
+          <i class="material-icons md-36">home</i>
+        </div>
+        <div class="md-tile-content">
+          Dashboard
+        </div>
+      </md-button>
+      <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="home.profile">
+        <div hide-sm hide-md class="md-tile-content">
+          <i class="material-icons md-36">profile</i>
+        </div>
+        <div class="md-tile-content">
+          Profile
+        </div>
+      </md-button>
     </md-content>
   </md-sidenav>
 
