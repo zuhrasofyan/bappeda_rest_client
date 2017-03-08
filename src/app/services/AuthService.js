@@ -6,7 +6,7 @@ angular
     
     function submitLogin(loginData) {
       $http.post('http://localhost:1337/auth/login', {
-        username: loginData.email,
+        email: loginData.email,
         password: loginData.password
       }).then(function(result){
         if (result.status === 200) {
