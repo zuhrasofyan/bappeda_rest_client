@@ -1,7 +1,7 @@
 angular
   .module('app')
   .component('userDashboard', {
-    templateUrl: 'app/components/userDashboard/userDashboard.html',
+    templateUrl: 'app/pages/userDashboard/userDashboard.html',
     controller: userDashboardController,
     controllerAs: 'vm'
   });
@@ -10,7 +10,7 @@ function userDashboardController(UserService, $http) {
   vm = this;
 
   //general
-  
+  vm.hello = "hello";
 
   //for tab user 
   function getUser() {

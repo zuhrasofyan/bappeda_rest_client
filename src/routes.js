@@ -17,11 +17,20 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       component: 'login'
     })
     .state('dashboard', {
-      url: '/dashboard',
+      url: '',
       component: 'dashboard',
+      abstract: true,
       resolve: {
         loginRequired : loginRequired
       }
+    })
+    .state('dashboard.home', {
+      url: '/home',
+      component: 'homeDashboard'
+    })
+    .state('dashboard.user', {
+      url: '/profile',
+      component: 'userDashboard'
     });
 
     // otherwise will take care of routing the user to the specified url
