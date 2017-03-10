@@ -20,7 +20,7 @@ angular
           UserService.setCurrentToken(result.data.token);
           authManager.authenticate();
 
-          $state.go('dashboard');
+          $state.go('dashboard.home');
           //console.log(jwtHelper.decodeToken(store.get('token')));
           //console.log(jwtHelper.getTokenExpirationDate(store.get('token')));
         }
