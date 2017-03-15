@@ -9,13 +9,9 @@
             <h1 class="md-toolbar-tools">Sidenav Left</h1>
           </md-toolbar>
           <md-content layout-padding="">
-            <p>
-              This sidenav is locked open on your device. To go back to the default behavior,
-              narrow your display.
-            </p>
             <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.home">
               <div hide-sm hide-md class="md-tile-content">
-                <i class="material-icons md-36">home</i>
+                <i class="glyphicon glyphicon-home"></i>
               </div>
               <div class="md-tile-content">
                 Dashboard
@@ -23,22 +19,26 @@
             </md-button>
             <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.user">
               <div hide-sm hide-md class="md-tile-content">
-                <i class="material-icons md-36">profile</i>
+                <i class="glyphicon glyphicon-user"></i>
               </div>
               <div class="md-tile-content">
                 Profile
+              </div>
+            </md-button>
+            <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.rad">
+              <div hide-sm hide-md class="md-tile-content">
+                <i class="glyphicon glyphicon-list-alt"></i>
+              </div>
+              <div class="md-tile-content">
+                Isi RAD
               </div>
             </md-button>
           </md-content>
         </md-sidenav>
 
         <md-content flex="" layout-padding="">
-            <md-tabs md-dynamic-height md-border-bottom>
-            	<ui-view></ui-view>
-              <!-- <user-dashboard></user-dashboard> -->
-              
-            </md-tabs>
-          </md-content>  
+          <ui-view></ui-view>
+        </md-content>  
 			  
 
 
