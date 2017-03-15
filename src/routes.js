@@ -31,6 +31,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('dashboard.user', {
       url: '/profile',
       component: 'userDashboard'
+    })
+    .state('dashboard.rad', {
+      url: '/rad',
+      component: 'isiRadDashboard'
     });
 
     // otherwise will take care of routing the user to the specified url

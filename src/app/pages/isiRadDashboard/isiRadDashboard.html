@@ -1,0 +1,114 @@
+<md-content md-theme="docs-dark" layout-padding>
+  <div>
+    <h3>FORM RAD</h3>
+     <form name="userForm">
+       <div layout-gt-xs="row" flex>
+
+        <md-input-container flex="50">
+          <label>Judul </label>
+          <md-select ng-model="vm.isirad.judul">
+            <md-optgroup label="Judul">
+              <md-option ng-value="judul.name" ng-repeat="judul in vm.judulList">{{judul.name}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container flex="33">
+          <label>Tanggal Entri</label>
+          <md-datepicker ng-model="vm.isirad.tanggalInput"></md-datepicker>
+        </md-input-container>
+
+      </div>
+     </form>
+  </div>
+</md-content>
+
+<pre>{{vm.isirad}}</pre>
+
+<md-content layout-padding>
+  <div>
+    <form name="userForm">
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Permasalahan</label>
+        <input ng-model="vm.isirad.masalah">
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Usulan Rekomendasi</label>
+        <input ng-model="vm.isirad.rekomendasi">
+      </md-input-container>
+
+       <md-input-container class="md-block">
+        <label>Rencana Aksi</label>
+        <textarea ng-model="vm.isirad.rencanaAksi" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+      
+     
+      <md-input-container>
+        <label>SKPD /Instansi yang Bertanggung Jawab</label>
+        <md-select ng-model="vm.isirad.selectedSkpd" multiple>
+          <md-optgroup label="SKPD">
+            <md-option ng-value="skpd" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container>
+
+      
+
+      <!-- <md-input-container>
+        <label>Instansi Penanggung Jawab</label>
+        <md-select ng-model="vm.isirad.selectedSkpd" multiple>
+          <md-select-header class="demo-select-header">
+            <input ng-model="vm.searchTerm"
+                   type="search"
+                   placeholder="Cari SKPD.."
+                   class="demo-header-searchbox md-text">
+          </md-select-header>
+          <md-optgroup label="skpd">
+            <md-option ng-value="SKPD" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container> -->
+
+
+      <!-- <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>City</label>
+          <input ng-model="user.city">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>State</label>
+          <md-select ng-model="user.state">
+            <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+              {{state.abbrev}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Postal Code</label>
+          <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                 required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+
+          <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+            <div ng-message="required" class="my-message">You must supply a postal code.</div>
+            <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+              code.
+            </div>
+            <div ng-message="md-maxlength" class="my-message">
+              Don't use the long version silly...we don't need to be that specific...
+            </div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Biography</label>
+        <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container> -->
+
+    </form>
+  </div>
+</md-content>
