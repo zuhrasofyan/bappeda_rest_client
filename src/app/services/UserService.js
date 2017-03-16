@@ -3,7 +3,7 @@ angular
   .service('UserService', UserService);
 
 function UserService(store, jwtHelper) {
-  vm =this;
+  var vm = this;
   var currentUser = null, currentToken = null;
 
   function setCurrentToken (token) {
