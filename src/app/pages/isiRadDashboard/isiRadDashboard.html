@@ -1,8 +1,8 @@
 <md-content md-theme="docs-dark" layout-padding>
   <div>
-    <h3>FORM RAD</h3>
+    <h3>FORM RAD {{vm.curYear-1}}</h3>
      <form name="userForm">
-       <div layout-gt-xs="row" flex>
+       <div layout="row" flex>
 
         <md-input-container flex="50">
           <label>Judul </label>
@@ -23,38 +23,63 @@
   </div>
 </md-content>
 
-<pre>{{vm.isirad}}</pre>
+<!-- <pre>{{vm.isirad}}</pre> -->
 
 <md-content layout-padding>
   <div>
     <form name="userForm">
 
-      <md-input-container class="md-block" flex-gt-sm>
+      <md-input-container class="md-block">
         <label>Permasalahan</label>
-        <input ng-model="vm.isirad.masalah">
+        <textarea ng-model="vm.isirad.masalah" rows="2"></textarea>
       </md-input-container>
 
       <md-input-container class="md-block">
         <label>Usulan Rekomendasi</label>
-        <input ng-model="vm.isirad.rekomendasi">
+        <textarea ng-model="vm.isirad.rekomendasi" rows="2" md-select-on-focus></textarea>
       </md-input-container>
 
        <md-input-container class="md-block">
         <label>Rencana Aksi</label>
-        <textarea ng-model="vm.isirad.rencanaAksi" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="vm.isirad.rencanaAksi" rows="3" md-select-on-focus></textarea>
       </md-input-container>
       
-     
-      <md-input-container>
-        <label>SKPD /Instansi yang Bertanggung Jawab</label>
-        <md-select ng-model="vm.isirad.selectedSkpd" multiple>
-          <md-optgroup label="SKPD">
-            <md-option ng-value="skpd" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
-          </md-optgroup>
-        </md-select>
+      <div layout="row" flex>
+        <md-input-container flex="90">
+          <label>SKPD /Instansi yang Bertanggung Jawab</label>
+          <md-select ng-model="vm.isirad.selectedSkpd" multiple>
+            <md-optgroup label="SKPD">
+              <md-option ng-value="skpd" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
+            </md-optgroup>
+          </md-select>
+        </md-input-container>
+      </div>
+      
+      <md-input-container class="md-block">
+        <label>Ukuran Keberhasilan</label>
+        <textarea ng-model="vm.isirad.ukuranBerhasil" rows="2" md-select-on-focus></textarea>
       </md-input-container>
 
-      
+      <md-input-container class="md-block">
+        <label>Target Capaian {{vm.curYear - 1}}</label>
+        <textarea ng-model="vm.isirad.targetLastYear" rows="2" md-select-on-focus></textarea>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Target Capaian {{vm.curYear}}</label>
+        <textarea ng-model="vm.isirad.targetThisYear" rows="2" md-select-on-focus></textarea>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Status s/d Desember {{vm.curYear - 1}}</label>
+        <textarea ng-model="vm.isirad.statusLastYear" rows="2" md-select-on-focus></textarea>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Keterangan</label>
+        <textarea ng-model="vm.isirad.keterangan" rows="2" md-select-on-focus></textarea>
+      </md-input-container>
+
 
       <!-- <md-input-container>
         <label>Instansi Penanggung Jawab</label>
@@ -110,5 +135,9 @@
       </md-input-container> -->
 
     </form>
+    <div layout="row">
+      <md-button flex="50" class="md-primary md-raised">Kirim</md-button>
+    </div>
+    
   </div>
 </md-content>

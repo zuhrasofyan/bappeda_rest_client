@@ -32,9 +32,15 @@ function isiRadDashboardController($element) {
   //         ev.stopPropagation();
   //     });
 
+  //set Year
+  var currentTime = new Date();
+  var curYear = currentTime.getFullYear();
+  var lastYear = curYear -1;
+  vm.curYear = curYear;
+
 
   vm.isirad = {
-  	tahun: '2016',
+  	tahun: curYear-1,
   	tanggalInput: datenow,
     selectedSkpd: '',
   };
