@@ -31,7 +31,7 @@
 
       <md-input-container class="md-block">
         <label>Permasalahan</label>
-        <textarea ng-model="vm.isirad.masalah" rows="2"></textarea>
+        <textarea ng-model="vm.isirad.masalah" rows="2" required></textarea>
       </md-input-container>
 
       <md-input-container class="md-block">
@@ -136,8 +136,9 @@
 
     </form>
     <div layout="row">
-      <md-button flex="50" class="md-primary md-raised">Kirim</md-button>
+      <md-button flex="50" class="md-primary md-raised" ng-click="vm.clickFormRad(vm.isirad)">Kirim</md-button>
     </div>
+    <pre>{{vm.isirad}}</pre>
     
   </div>
 </md-content>

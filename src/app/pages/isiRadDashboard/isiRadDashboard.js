@@ -11,7 +11,7 @@ angular
   	.dark();
   })
 
-function isiRadDashboardController($element) {
+function isiRadDashboardController($element, RadService) {
   var vm = this;
   vm.showHints = true;
   var datenow = new Date();
@@ -24,6 +24,7 @@ function isiRadDashboardController($element) {
 
   vm.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
   vm.selectedSkpd = [];
+
   // vm.searchTerm;
   // vm.clearSearchTerm = function() {
   //   vm.searchTerm = '';
@@ -38,11 +39,15 @@ function isiRadDashboardController($element) {
   var lastYear = curYear -1;
   vm.curYear = curYear;
 
-
+  //initial value of form isirad
   vm.isirad = {
   	tahun: curYear-1,
   	tanggalInput: datenow,
     selectedSkpd: '',
   };
+  function clickFormRad(data) {
+    RadService.submitRad(data);
+  };
+  vm.clickFormRad = clickFormRad;
 
 }
