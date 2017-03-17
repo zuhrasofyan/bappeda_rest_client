@@ -3,13 +3,13 @@ angular
   .service('RadService', RadService);
 
 
-function RadService($http, $state) {
+function RadService($http, $state, moment) {
 	var vm = this;
 
 	function submitRad(data) {
 		$http.post('http://localhost:1337/renaksi/tambah-data', {
 			judul:data.judul,
-			tanggal: data.tanggal,
+			tanggal: moment(data.tanggal).format('YYYY-MM-DD'),
 			masalah: data.masalah,
 			rekomendasi: data.rekomendasi,
 			rencanaAksi: data.rencanaAksi,
@@ -21,7 +21,6 @@ function RadService($http, $state) {
 			keterangan: data.keterangan
 		}).then(function(result){
 			if (result.status !== 200) {
-				//console.log(result.data);
 				alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
 			} else if (result.status === 200) {
 				alert ('Data berhasil ditambah');
