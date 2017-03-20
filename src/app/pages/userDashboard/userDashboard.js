@@ -7,12 +7,12 @@ angular
   });
 
 function userDashboardController(UserService, $http) {
-  vm = this;
+  var vm = this;
 
   //general
   vm.hello = "hello";
 
-  //for tab user 
+  //for tab user
   function getUser() {
     var a = UserService.getCurrentUser();
     return a;
@@ -34,5 +34,5 @@ function userDashboardController(UserService, $http) {
     vm.allUser = d.data;
   });
 
-  
+
 }

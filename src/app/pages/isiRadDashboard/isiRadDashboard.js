@@ -22,7 +22,7 @@ function isiRadDashboardController($element, RadService, UserService) {
     return a.username;
   };
 
-  vm.judulList = [
+  vm.kategoriList = [
     {name: "Pengelolaan APBD"},
     {name: "Pengadaan Barang dan Jasa"},
     {name: "Perizinan / Pelayanan Terpadu Satu Pintu"},

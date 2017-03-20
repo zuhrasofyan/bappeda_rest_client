@@ -8,7 +8,7 @@ function RadService($http, $state, moment) {
 
 	function submitRad(data) {
 		$http.post('http://localhost:1337/renaksi/tambah-data', {
-			judul:data.judul,
+			kategori:data.kategori,
 			tanggal: moment(data.tanggal).format('YYYY-MM-DD'),
 			masalah: data.masalah,
 			rekomendasi: data.rekomendasi,
