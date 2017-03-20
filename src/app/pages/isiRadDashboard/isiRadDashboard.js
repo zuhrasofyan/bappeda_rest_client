@@ -9,12 +9,19 @@ angular
   	$mdThemingProvider.theme('docs-dark', 'default')
   	.primaryPalette('yellow')
   	.dark();
-  })
+  });
 
-function isiRadDashboardController($element, RadService) {
+function isiRadDashboardController($element, RadService, UserService) {
   var vm = this;
   vm.showHints = true;
+
+  // initialize default data
   var datenow = new Date();
+  var user = function (){
+    var a = UserService.getCurrentUser();
+    return a.username;
+  };
+
   vm.judulList = [
     {name: "Pengelolaan APBD"},
     {name: "Pengadaan Barang dan Jasa"},
@@ -24,14 +31,6 @@ function isiRadDashboardController($element, RadService) {
 
   vm.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
   vm.selectedSkpd = [];
-
-  // vm.searchTerm;
-  // vm.clearSearchTerm = function() {
-  //   vm.searchTerm = '';
-  // };
-  // $element.find('input').on('keydown', function(ev) {
-  //         ev.stopPropagation();
-  //     });
 
   //set Year
   var currentTime = new Date();
@@ -44,10 +43,12 @@ function isiRadDashboardController($element, RadService) {
   	tahun: curYear-1,
   	tanggalInput: datenow,
     selectedSkpd: '',
+    pembuat: user()
   };
   function clickFormRad(data) {
     RadService.submitRad(data);
-  };
+  }
   vm.clickFormRad = clickFormRad;
+
 
 }

@@ -11,7 +11,7 @@ function UserService(store, jwtHelper) {
     store.set('token', token);
     return currentToken;
   }
-  
+
   function setCurrentUser (user) {
     currentUser = user;
     store.set('user', user);
@@ -27,10 +27,10 @@ function UserService(store, jwtHelper) {
       }
     }
     return currentUser;
-  };
+  }
 
   function getCurrentToken() {
-    
+
     //if (!currentToken) {
       currentToken = store.get('token');
     //}

@@ -18,7 +18,8 @@ function RadService($http, $state, moment) {
 			targetLastYear: data.targetLastYear,
 			targetThisYear: data.targetThisYear,
 			statusLastYear: data.statusLastYear,
-			keterangan: data.keterangan
+			keterangan: data.keterangan,
+      pembuat: data.pembuat
 		}).then(function(result){
 			if (result.status !== 200) {
 				alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
@@ -26,10 +27,8 @@ function RadService($http, $state, moment) {
 				alert ('Data berhasil ditambah');
 				$state.reload();
 			}
-		})
+		});
 	}
 	vm.submitRad = submitRad;
 
-};
-
-
+}
