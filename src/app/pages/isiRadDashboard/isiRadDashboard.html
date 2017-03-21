@@ -13,7 +13,16 @@
          </md-select>
        </md-input-container>
 
-       <md-input-container flex="33">
+       <md-input-container flex="15">
+         <label>Tahun RAD</label>
+         <md-select ng-model="vm.isirad.tahun">
+           <md-optgroup label="Tahun">
+             <md-option ng-value="tahun" ng-repeat="tahun in vm.tahunList">{{tahun}}</md-option>
+           </md-optgroup>
+         </md-select>
+       </md-input-container>
+
+       <md-input-container flex="30">
          <label>Tanggal Entri</label>
          <md-datepicker ng-model="vm.isirad.tanggalInput"></md-datepicker>
        </md-input-container>

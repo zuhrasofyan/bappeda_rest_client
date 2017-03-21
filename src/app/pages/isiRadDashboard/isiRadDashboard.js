@@ -29,6 +29,10 @@ function isiRadDashboardController($element, RadService, UserService) {
     {name: "Permasalahan Lainnya"}
   ];
 
+  vm.tahunList = [
+    2016, 2017
+  ];
+
   vm.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
   vm.selectedSkpd = [];
 
