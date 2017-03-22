@@ -132,3 +132,13 @@ a {
 .welcome-user {
   font-size: .8em;
 }
+
+// material design custom style
+md-sidenav,
+md-sidenav.md-locked-open-add-active,
+md-sidenav.md-closed.md-locked-open-add-active,
+md-sidenav.md-locked-open {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+}
