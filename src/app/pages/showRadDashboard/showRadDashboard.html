@@ -1,0 +1,54 @@
+<md-content md-theme="docs-dark" layout-padding>
+  <h3>RAD Tahun {{vm.lastYear}}</h3>
+  <!-- <md-toolbar class="md-table-toolbar md-default">
+    <div class="md-toolbar-tools">
+      <span>RAD Tahun {{vm.lastYear}}</span>
+    </div>
+  </md-toolbar> -->
+</md-content>
+<!-- exact table from live demo -->
+
+<div class="" ng-repeat="data in vm.dataTahunan">
+  <md-card style="margin:8px 0px;">
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>{{data.kategori}}</span>
+      </div>
+    </md-toolbar>
+    <div ng-if="data.renaksi.length > 0">
+      <md-table-container>
+        <table md-table md-row-select multiple ng-model="vm.selected" md-progress="promise">
+          <thead md-head md-order="vm.query.order">
+            <tr md-row>
+              <th md-column><span>Masalah</span></th>
+              <th md-column><span>Rekomendasi</span></th>
+              <th md-column>Rencana Aksi</th>
+              <th md-column>SKPD</th>
+              <th md-column>Ukuran Keberhasilan</th>
+              <th md-column>Target Capaian {{vm.lastYear}}</th>
+              <th md-column>Target Capaian {{vm.curYear}}</th>
+              <th md-column>Status s/d Desember</th>
+
+            </tr>
+          </thead>
+          <tbody md-body>
+            <tr md-row ng-repeat="renaksi in data.renaksi">
+              <td md-cell>{{renaksi.masalah}}</td>
+              <td md-cell>{{renaksi.rekomendasi}}</td>
+              <td md-cell>{{renaksi.rencana_aksi}}</td>
+              <td md-cell><ul ng-repeat="x in renaksi.skpd"><li>{{x}}</li></ul></td>
+              <td md-cell>{{renaksi.ukuran_berhasil}}</td>
+              <td md-cell>{{renaksi.target_last_year}}</td>
+              <td md-cell>{{renaksi.target_this_year}}</td>
+              <td md-cell>{{renaksi.status_last_year}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </div>
+    <div class="" ng-if="data.renaksi.length == 0">
+      Tidak ada data
+    </div>
+  </md-card>
+
+</div>
