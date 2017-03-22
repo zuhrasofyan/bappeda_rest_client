@@ -3,9 +3,9 @@ angular
   .config(routesConfig);
 
 /** @ngInject */
-function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $urlRouterProvider) {
+function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
- 
+
 
   $stateProvider
     .state('home', {
@@ -35,6 +35,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('dashboard.rad', {
       url: '/rad',
       component: 'isiRadDashboard'
+    })
+    .state('dashboard.showRad', {
+      url: '/show-rad',
+      component: 'showRadDashboard'
     });
 
     // otherwise will take care of routing the user to the specified url
@@ -51,7 +55,7 @@ function loginRequired ($q, $location, authManager, $rootScope) {
   if (checkAuth) {
     deferred.resolve();
   } else {
-    $location.path('/')
+    $location.path('/');
   }
   return deferred.promise;
-};
+}
