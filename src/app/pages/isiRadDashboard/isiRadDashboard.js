@@ -22,12 +22,15 @@ function isiRadDashboardController($element, RadService, UserService) {
     return a.username;
   };
 
-  vm.kategoriList = [
-    {name: "Pengelolaan APBD"},
-    {name: "Pengadaan Barang dan Jasa"},
-    {name: "Perizinan / Pelayanan Terpadu Satu Pintu"},
-    {name: "Permasalahan Lainnya"}
-  ];
+  // vm.kategoriList = [
+  //   {name: "Pengelolaan APBD"},
+  //   {name: "Pengadaan Barang dan Jasa"},
+  //   {name: "Perizinan / Pelayanan Terpadu Satu Pintu"},
+  //   {name: "Permasalahan Lainnya"}
+  // ];
+  RadService.getRadKategori().then(function(d){
+    vm.kategoriList = d.data;
+  });
 
   vm.tahunList = [
     2016, 2017

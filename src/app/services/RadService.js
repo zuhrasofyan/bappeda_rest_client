@@ -8,7 +8,7 @@ function RadService($http, $state, moment) {
 
 	function submitRad(data) {
 		$http.post('http://localhost:1337/renaksi/tambah-data', {
-			kategori:data.kategori,
+			nomor:data.nomor,
 			tanggal: moment(data.tanggal).format('YYYY-MM-DD'),
       tahun: data.tahun,
 			masalah: data.masalah,
@@ -31,5 +31,15 @@ function RadService($http, $state, moment) {
 		});
 	}
 	vm.submitRad = submitRad;
+
+  function getRadDataTahunan(tahun) {
+    return $http.get('http://localhost:1337/renaksi/get-rad-data/'+tahun);
+  }
+  vm.getRadDataTahunan = getRadDataTahunan;
+
+  function getRadKategori() {
+    return $http.get('http://localhost:1337/renaksi/kategori');
+  }
+  vm.getRadKategori = getRadKategori;
 
 }
