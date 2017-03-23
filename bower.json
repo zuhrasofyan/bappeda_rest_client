@@ -12,7 +12,7 @@
     "angular-material": "^1.1.1",
     "angular-messages": "^1.6.1",
     "angular-moment": "^1.0.1",
-    "angular-material-data-table": "^0.10.10"
+    "md-data-table": "^2.2.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0"
