@@ -24,7 +24,7 @@
       }
       and change element.append(val); to element[0].append(val); -->
 
-      <mdt-table table-card="{title: asdasdasdasd}"
+      <mdt-table table-card="{title: data.kategori}"
         mdt-row="{
           data: data.renaksi,
           'column-keys': [
@@ -48,8 +48,32 @@
           <mdt-column><span>Target Capaian {{vm.curYear}}</span></mdt-column>
           <mdt-column><span>Status s/d Desember</span></mdt-column>
         </mdt-header-row>
+
+        <!-- to insert a unique style for each cell use mdt-custom-cell.
+              You normally dont need this to be declared -->
+        <mdt-custom-cell column-key="masalah">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
+        <mdt-custom-cell column-key="rekomendasi">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
+        <mdt-custom-cell column-key="rencana_aksi">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
+        <mdt-custom-cell column-key="ukuran_berhasil">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
+        <mdt-custom-cell column-key="target_last_year">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
+        <mdt-custom-cell column-key="target_this_year">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
+        <mdt-custom-cell column-key="status_last_year">
+            <span style="white-space:pre-line;">{{value}}</span>
+        </mdt-custom-cell>
       </mdt-table>
-      
+
     </div>
     <div class="" ng-if="data.renaksi.length == 0">
       Tidak ada data
