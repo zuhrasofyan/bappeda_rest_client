@@ -16,33 +16,7 @@
       </div>
     </md-toolbar>
     <div ng-if="data.renaksi.length > 0">
-      <!-- <table class="table">
-        <theader>
-          <tr>
-            <td>Masalah</td>
-            <td>Rekomendasi</td>
-            <td>Rencana Aksi</td>
-            <td>SKPD</td>
-            <td>Ukuran Keberhasilan</td>
-            <td>Target Capaian {{vm.lastYear}}</td>
-            <td>Target Capaian {{vm.curYear}}</td>
-            <td>Status s/d Desember</td>
-          </tr>
-        </theader>
-        <tbody>
-          <tr ng-repeat="renaksi in data.renaksi">
-            <td>{{renaksi.masalah}}</td>
-            <td ng-bind-html="renaksi.rekomendasi | unsafe"></td>
-            <td>{{renaksi.rencana_aksi}}</td>
-            <td><ul ng-repeat="x in renaksi.skpd" ng-if="x.length > 0"><li>{{x}}</li></ul></td>
-            <td>{{renaksi.ukuran_berhasil}}</td>
-            <td>{{renaksi.target_last_year}}</td>
-            <td>{{renaksi.target_this_year}}</td>
-            <td>{{renaksi.status_last_year}}</td>
-          </tr>
-        </tbody>
-      </table> -->
-      
+
       <!-- in case mdt-table generate error failed to execute 'appendChild' on Node,
       find this line in bower md-data-table/dist/md-data-table.js: (around line 1380)
       }else{
@@ -75,35 +49,7 @@
           <mdt-column><span>Status s/d Desember</span></mdt-column>
         </mdt-header-row>
       </mdt-table>
-      <!-- <md-table-container>
-        <table md-table ng-model="vm.selected" md-progress="promise">
-          <thead md-head md-order="vm.query.order">
-            <tr md-row>
-              <th md-column><span>Masalah</span></th>
-              <th md-column><span>Rekomendasi</span></th>
-              <th md-column>Rencana Aksi</th>
-              <th md-column>SKPD</th>
-              <th md-column>Ukuran Keberhasilan</th>
-              <th md-column>Target Capaian {{vm.lastYear}}</th>
-              <th md-column>Target Capaian {{vm.curYear}}</th>
-              <th md-column>Status s/d Desember</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="renaksi in data.renaksi">
-              <td>{{renaksi.masalah}}</td>
-              <td ng-bind-html="renaksi.rekomendasi | unsafe"></td>
-              <td ng-bind-html="renaksi.rencana_aksi | unsafe"></td>
-              <td ><ul ng-repeat="x in renaksi.skpd" ng-if="x.length > 0"><li>{{x}}</li></ul></td>
-              <td >{{renaksi.ukuran_berhasil}}</td>
-              <td >{{renaksi.target_last_year}}</td>
-              <td >{{renaksi.target_this_year}}</td>
-              <td >{{renaksi.status_last_year}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </md-table-container> -->
+      
     </div>
     <div class="" ng-if="data.renaksi.length == 0">
       Tidak ada data
