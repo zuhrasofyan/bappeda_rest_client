@@ -142,3 +142,45 @@ md-sidenav.md-locked-open {
   min-width: 200px;
   max-width: 200px;
 }
+
+// md-data-table custom style
+
+// table.md-table.md-row-select td.md-cell:first-child,
+// table.md-table.md-row-select th.md-column:first-child {
+//   width: 20px;
+//   padding: 0 0 0 24px;
+// }
+table.md-table.md-row-select td.md-cell:nth-child(2),
+table.md-table.md-row-select th.md-column:nth-child(2) {
+  padding: 10px 24px;
+}
+table.md-table.md-row-select td.md-cell:nth-child(n+3):nth-last-child(n+2),
+table.md-table.md-row-select th.md-column:nth-child(n+3):nth-last-child(n+2) {
+  padding: 10px 10px 0 0;
+}
+table.md-table:not(.md-row-select) td.md-cell:first-child,
+table.md-table:not(.md-row-select) th.md-column:first-child {
+  padding: 10px 2px 0px 2px;
+}
+table.md-table:not(.md-row-select) td.md-cell:nth-child(n+2):nth-last-child(n+2),
+table.md-table:not(.md-row-select) th.md-column:nth-child(n+2):nth-last-child(n+2) {
+  padding: 10px 10px 0 0;
+}
+table.md-table td.md-cell,
+table.md-table th.md-column {
+  vertical-align: top;
+  text-align: left;
+}
+table.md-table td.md-cell > *,
+table.md-table th.md-column > * {
+  vertical-align: middle;
+}
+table.md-table td.md-cell:last-child,
+table.md-table th.md-column:last-child {
+  padding: 10px 2px 0px 2px;
+}
+td.md-cell {
+  ul, ol {
+    padding-left: 15px;
+  }
+}
