@@ -8,7 +8,7 @@ angular
     controllerAs: 'vm'
   });
 
-  function showRadDashboardController(RadService) {
+  function showRadDashboardController(RadService, $mdDialog) {
     var vm = this;
 
     //set initial years
@@ -29,14 +29,55 @@ angular
       vm.dataTahunan = d.data;
     });
 
-    // RadService.getRadKategori().then(function(d){
-    //   vm.radKategoriList = d.data;
-    // });
-
     //change vm.dataTahunan if user select other years
     vm.changeTahun = function() {
       RadService.getRadDataTahunan(vm.tahun).then(function(d){
         vm.dataTahunan = d.data;
       });
     };
+
+    /*
+    ** MODAL DIALOG WITH TEMPLATE
+    */
+    vm.customFullscreen = false;
+    vm.showAdvanced = function(ev, _renaksi) {
+      $mdDialog.show({
+        controller: DialogController,
+        controllerAs: '$ctrl',
+        templateUrl: 'app/templates/editRad.tpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        //carrying scope from parent
+        resolve: {
+          renaksi : function (){
+            return _renaksi;
+          }
+        },
+        clickOutsideToClose:true,
+        fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+      })
+      .then(function(answer) {
+        vm.status = 'Yang anda Lakukan adalah"' + answer + '".';
+      }, function() {
+        vm.status = 'batal deh.';
+      });
+    };
+
+    function DialogController($mdDialog, renaksi) {
+      var $ctrl = this;
+
+      $ctrl.renaksi = renaksi;
+
+      $ctrl.hide = function() {
+        $mdDialog.hide();
+      };
+
+      $ctrl.cancel = function() {
+        $mdDialog.cancel();
+      };
+
+      $ctrl.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+    }
   }

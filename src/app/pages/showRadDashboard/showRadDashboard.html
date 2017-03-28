@@ -1,12 +1,7 @@
 <md-content md-theme="docs-dark" layout-padding>
   <h3>RAD Tahun {{vm.lastYear}}</h3>
-  <!-- <md-toolbar class="md-table-toolbar md-default">
-    <div class="md-toolbar-tools">
-      <span>RAD Tahun {{vm.lastYear}}</span>
-    </div>
-  </md-toolbar> -->
+
 </md-content>
-<!-- exact table from live demo -->
 
 <div class="" ng-repeat="data in vm.dataTahunan">
   <md-card style="margin:8px 0px;">
@@ -33,9 +28,14 @@
 
             </tr>
           </thead>
-          <tbody md-body>
-            <tr ng-repeat="renaksi in data.renaksi" style="white-space:pre-line" md-auto-select>
-              <td md-cell>{{$index+1}}.</td>
+          <tbody>
+            <tr md-body ng-repeat="renaksi in data.renaksi" style="white-space:pre-line" md-auto-select>
+              <td md-cell>{{$index+1}}.<br>
+                <md-button class="md-icon-button md-accent" aria-label="More" ng-click="vm.showAdvanced($event, renaksi)">
+                  <i class="glyphicon glyphicon-cog"></i>
+                </md-button>
+                {{vm.status}}
+              </td>
               <td md-cell>{{renaksi.masalah}}</td>
               <td md-cell>{{renaksi.rekomendasi}}</td>
               <td md-cell>{{renaksi.rencana_aksi}}</td>
