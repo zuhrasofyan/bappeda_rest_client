@@ -4,30 +4,31 @@
     <div layout="row" style="margin-top: 5px;">
 
         <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
-          <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Sidenav Left</h1>
+          <md-toolbar class="md-theme-indigo" layout="column">
+            <h1 layout-align="center center" class="md-toolbar-tools">Menu</h1>
           </md-toolbar>
+
           <md-content layout-padding="">
 
-            <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.home">
+            <md-button class="md-raised" layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.home">
               <div hide-sm hide-md class="md-tile-content">
                 <i class="glyphicon glyphicon-home"></i>
               </div>
               <div class="md-tile-content">
-                Dashboard
+                Beranda
               </div>
             </md-button>
 
-            <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.user">
+            <md-button class="md-raised" layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.user">
               <div hide-sm hide-md class="md-tile-content">
                 <i class="glyphicon glyphicon-user"></i>
               </div>
               <div class="md-tile-content">
-                Profile
+                Profil
               </div>
             </md-button>
 
-            <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.rad">
+            <md-button class="md-raised" layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.rad">
               <div hide-sm hide-md class="md-tile-content">
                 <i class="glyphicon glyphicon-pencil"></i>
               </div>
@@ -36,7 +37,7 @@
               </div>
             </md-button>
 
-            <md-button layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.showRad">
+            <md-button class="md-raised" layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.showRad">
               <div hide-sm hide-md class="md-tile-content">
                 <i class="glyphicon glyphicon-list-alt"></i>
               </div>

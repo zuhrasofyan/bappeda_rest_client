@@ -13,14 +13,16 @@
 <md-toolbar>
   <div layout="row" layout-align="center center">
     <div flex-offset="5">
-      
+
       <md-menu hide-gt-sm>
         <md-button class="md-fab md-mini" hide-gt-sm aria-label="Open menu" ng-click="$mdOpenMenu()" >
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </md-button>
         <md-menu-content width="3">
-            <md-menu-item><md-button ng-click="$mdCloseMenu()" ui-sref="home.dashboard">Log out</md-button></md-menu-item>
-            <md-menu-item><md-button ng-click="$mdCloseMenu()" ui-sref="home.profile">Profile</md-button></md-menu-item>
+            <md-menu-item><md-button ui-sref="dashboard.home" ui-sref-active="md-warn">Beranda</md-button></md-menu-item>
+            <md-menu-item><md-button ui-sref="dashboard.user" ui-sref-active="md-warn">Profil</md-button></md-menu-item>
+            <md-menu-item><md-button ui-sref="dashboard.rad" ui-sref-active="md-warn">Isi RAD</md-button></md-menu-item>
+            <md-menu-item><md-button ui-sref="dashboard.showRad" ui-sref-active="md-warn">Data RAD</md-button></md-menu-item>
         </md-menu-content>
       </md-menu>
     </div>
@@ -31,7 +33,7 @@
       </md-button>
     </div>
 
-    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">Halo, {{vm.username}} {{$root.isAuthenticated}}</span>
+    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">{{vm.username}}</span>
     <span>
       <md-button class="md-raised md-primary md-hue-1" aria-label="Login" ui-sref="login" ui-sref-active="active" ng-if="!vm.isAuthenticated">
         Login
@@ -52,4 +54,3 @@
     <md-nav-item md-nav-sref="app.page2" name="page2">Page Two</md-nav-item>
     <md-nav-item md-nav-href="#page3" name="page3">Page Three</md-nav-item>
   </md-nav-bar-->
-
