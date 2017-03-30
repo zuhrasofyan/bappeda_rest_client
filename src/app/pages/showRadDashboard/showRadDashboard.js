@@ -8,8 +8,15 @@ angular
     controllerAs: 'vm'
   });
 
-  function showRadDashboardController(RadService, $mdDialog) {
+  function showRadDashboardController(RadService, $mdDialog, UserService) {
     var vm = this;
+
+    function getUser() {
+      var a = UserService.getCurrentUser();
+      return a;
+    }
+
+    vm.user = getUser();
 
     //set initial years
     var currentTime = new Date();

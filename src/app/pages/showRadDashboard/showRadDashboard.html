@@ -31,7 +31,7 @@
           <tbody>
             <tr md-body ng-repeat="renaksi in data.renaksi" style="white-space:pre-line" md-auto-select>
               <td md-cell>{{$index+1}}.<br>
-                <md-button class="md-icon-button md-accent" aria-label="More" ng-click="vm.showAdvanced($event, renaksi)">
+                <md-button class="md-icon-button md-accent" aria-label="More" ng-click="vm.showAdvanced($event, renaksi)" ng-if="vm.user.role !== 'user'">
                   <i class="glyphicon glyphicon-cog"></i>
                 </md-button>
               </td>

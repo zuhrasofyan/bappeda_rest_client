@@ -23,7 +23,12 @@ function RadService($http, $state, moment) {
       pembuat: data.pembuat
 		}).then(function(result){
 			if (result.status !== 200) {
-				alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
+				if (result.status === 403) {
+					alert("Anda tidak memiliki akses. Silahkan login sebagai admin atau officer!");
+				} else {
+					alert('Ada kesalahan pada input anda atau server error. Coba lagi!');
+				}
+				
 			} else if (result.status === 200) {
 				alert ('Data berhasil ditambah');
 				$state.reload();
@@ -48,7 +53,11 @@ function RadService($http, $state, moment) {
 			keterangan: data.keterangan
 		}).then(function(result){
 			if (result.status !== 200) {
-				alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
+				if (result.status === 403) {
+					alert("Anda tidak memiliki akses. Silahkan login sebagai admin atau officer!");
+				} else {
+					alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
+				}
 			} else if (result.status === 200) {
 				alert ('Data berhasil diubah');
 				$state.reload();

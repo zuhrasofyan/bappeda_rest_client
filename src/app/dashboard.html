@@ -28,7 +28,7 @@
               </div>
             </md-button>
 
-            <md-button class="md-raised" layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.rad">
+            <md-button class="md-raised" layout="column" layout-align="center center" flex class="capitalize" ui-sref-active="md-warn" ui-sref="dashboard.rad" ng-if="vm.user.role !== 'user'">
               <div hide-sm hide-md class="md-tile-content">
                 <i class="glyphicon glyphicon-pencil"></i>
               </div>

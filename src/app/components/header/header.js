@@ -14,14 +14,14 @@ function headerController($rootScope, store, $location, authManager, AuthService
   //   vm.username = store.get('user').username;
   // } else vm.username = null;
 
-  function userName() {
+  function user() {
     var a = UserService.getCurrentUser();
-    return a.username;
+    return a;
   }
 
   function logout(){
     AuthService.logout();
   }
   vm.logout = logout;
-  vm.username = userName();
+  vm.user = user();
 }

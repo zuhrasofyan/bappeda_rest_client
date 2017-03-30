@@ -21,7 +21,7 @@
         <md-menu-content width="3">
             <md-menu-item><md-button ui-sref="dashboard.home" ui-sref-active="md-warn">Beranda</md-button></md-menu-item>
             <md-menu-item><md-button ui-sref="dashboard.user" ui-sref-active="md-warn">Profil</md-button></md-menu-item>
-            <md-menu-item><md-button ui-sref="dashboard.rad" ui-sref-active="md-warn">Isi RAD</md-button></md-menu-item>
+            <md-menu-item ng-if="vm.user.role !== 'user'"><md-button ui-sref="dashboard.rad" ui-sref-active="md-warn">Isi RAD</md-button></md-menu-item>
             <md-menu-item><md-button ui-sref="dashboard.showRad" ui-sref-active="md-warn">Data RAD</md-button></md-menu-item>
         </md-menu-content>
       </md-menu>
@@ -33,7 +33,7 @@
       </md-button>
     </div>
 
-    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">{{vm.username}}</span>
+    <span hide-xs hide-sm show-md class="welcome-user" ng-if="vm.isAuthenticated">{{vm.user.username}}</span>
     <span>
       <md-button class="md-raised md-primary md-hue-1" aria-label="Login" ui-sref="login" ui-sref-active="active" ng-if="!vm.isAuthenticated">
         Login
