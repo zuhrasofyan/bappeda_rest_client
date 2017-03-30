@@ -32,6 +32,31 @@ function RadService($http, $state, moment) {
 	}
 	vm.submitRad = submitRad;
 
+  function editRad(id, data) {
+    $http.patch('http://localhost:1337/renaksi/edit-data/'+id, {
+      kategori: data.kategori,
+			tanggal: data.tanggal,
+      tahun: data.tahun,
+			masalah: data.masalah,
+			rekomendasi: data.rekomendasi,
+			rencanaAksi: data.rencana_aksi,
+			selectedSkpd: data.skpd,
+			ukuranBerhasil: data.ukuran_berhasil,
+			targetLastYear: data.target_last_year,
+			targetThisYear: data.target_this_year,
+			statusLastYear: data.status_last_year,
+			keterangan: data.keterangan
+		}).then(function(result){
+			if (result.status !== 200) {
+				alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
+			} else if (result.status === 200) {
+				alert ('Data berhasil diubah');
+				$state.reload();
+			}
+		});
+	}
+	vm.editRad = editRad;
+
   function getRadDataTahunan(tahun) {
     return $http.get('http://localhost:1337/renaksi/get-rad-data/'+tahun);
   }
