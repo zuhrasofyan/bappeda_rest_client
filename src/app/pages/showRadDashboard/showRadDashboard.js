@@ -57,14 +57,25 @@ angular
         fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
       })
       .then(function(answer) {
-        vm.status = 'Yang anda Lakukan adalah"' + answer + '".';
+        console.log(answer);
       }, function() {
-        vm.status = 'batal deh.';
+        console.log('ditutup dari luar');
       });
     };
 
-    function DialogController($mdDialog, renaksi) {
+    function DialogController($mdDialog, renaksi, RadService) {
       var $ctrl = this;
+
+      RadService.getRadKategori().then(function(d){
+        $ctrl.kategoriList = d.data;
+      });
+
+      /* TODO: get list of tahun from backend */
+      $ctrl.tahunList = [
+        2016, 2017
+      ];
+
+      $ctrl.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
 
       $ctrl.renaksi = renaksi;
 
@@ -79,5 +90,11 @@ angular
       $ctrl.answer = function(answer) {
         $mdDialog.hide(answer);
       };
+
+      function clickFormRad(id, data){
+        RadService.editRad(id, data);
+        $mdDialog.hide();
+      }
+      $ctrl.clickFormRad = clickFormRad;
     }
   }
