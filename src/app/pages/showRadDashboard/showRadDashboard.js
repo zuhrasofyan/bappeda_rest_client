@@ -8,7 +8,7 @@ angular
     controllerAs: 'vm'
   });
 
-  function showRadDashboardController(RadService, $mdDialog, UserService) {
+  function showRadDashboardController(RadService, $mdDialog, $state, UserService) {
     var vm = this;
 
     function getUser() {
@@ -65,6 +65,7 @@ angular
       })
       .then(function(answer) {
         console.log(answer);
+        $state.reload();
       }, function() {
         console.log('ditutup dari luar');
       });
