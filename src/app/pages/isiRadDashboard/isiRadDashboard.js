@@ -45,7 +45,8 @@ function isiRadDashboardController($element, RadService, UserService) {
   	tahun: curYear-1,
   	tanggalInput: datenow,
     selectedSkpd: '',
-    pembuat: user()
+    pembuat: user(),
+    persentasiCapaian: 0
   };
   function clickFormRad(data) {
     RadService.submitRad(data);

@@ -6,7 +6,7 @@
      <h3>FORM RAD {{vm.curYear-1}}</h3>
      <div layout="row" flex>
        <md-input-container flex="50">
-         <label>Kategori </label>
+         <label>Kategori: </label>
          <md-select ng-model="vm.isirad.nomor">
            <md-optgroup label="Kategori">
              <md-option ng-value="kategori.nomor" ng-repeat="kategori in vm.kategoriList">{{kategori.kategori}}</md-option>
@@ -15,7 +15,7 @@
        </md-input-container>
 
        <md-input-container flex="15">
-         <label>Tahun RAD</label>
+         <label>Tahun RAD:</label>
          <md-select ng-model="vm.isirad.tahun">
            <md-optgroup label="Tahun">
              <md-option ng-value="tahun" ng-repeat="tahun in vm.tahunList">{{tahun}}</md-option>
@@ -24,7 +24,7 @@
        </md-input-container>
 
        <md-input-container flex="30">
-         <label>Tanggal Entri</label>
+         <label>Tanggal Entri:</label>
          <md-datepicker ng-model="vm.isirad.tanggalInput"></md-datepicker>
        </md-input-container>
      </div>
@@ -32,7 +32,7 @@
 
    <md-content layout-padding>
      <md-input-container class="md-block">
-       <label>Permasalahan</label>
+       <label>Permasalahan:</label>
        <textarea name="masalah" ng-model="vm.isirad.masalah" rows="2" required></textarea>
        <div ng-messages="userForm.masalah.$error">
          <div ng-message="required">Harus diisi.</div>
@@ -40,18 +40,18 @@
      </md-input-container>
 
      <md-input-container class="md-block">
-       <label>Usulan Rekomendasi</label>
+       <label>Usulan Rekomendasi:</label>
        <textarea ng-model="vm.isirad.rekomendasi" rows="2" md-select-on-focus></textarea>
      </md-input-container>
 
       <md-input-container class="md-block">
-       <label>Rencana Aksi</label>
+       <label>Rencana Aksi:</label>
        <textarea ng-model="vm.isirad.rencanaAksi" rows="3" md-select-on-focus></textarea>
      </md-input-container>
 
      <div layout="row" flex>
        <md-input-container flex="90">
-         <label>SKPD /Instansi yang Bertanggung Jawab</label>
+         <label>SKPD /Instansi yang Bertanggung Jawab:</label>
          <md-select ng-model="vm.isirad.selectedSkpd" multiple>
            <md-optgroup label="SKPD">
              <md-option ng-value="skpd" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
@@ -61,27 +61,39 @@
      </div>
 
      <md-input-container class="md-block">
-       <label>Ukuran Keberhasilan</label>
+       <label>Ukuran Keberhasilan:</label>
        <textarea ng-model="vm.isirad.ukuranBerhasil" rows="2" md-select-on-focus></textarea>
      </md-input-container>
 
      <md-input-container class="md-block">
-       <label>Target Capaian {{vm.curYear - 1}}</label>
+       <label>Target Capaian {{vm.curYear - 1}}:</label>
        <textarea ng-model="vm.isirad.targetLastYear" rows="2" md-select-on-focus></textarea>
      </md-input-container>
 
      <md-input-container class="md-block">
-       <label>Target Capaian {{vm.curYear}}</label>
+       <label>Target Capaian {{vm.curYear}}:</label>
        <textarea ng-model="vm.isirad.targetThisYear" rows="2" md-select-on-focus></textarea>
      </md-input-container>
 
      <md-input-container class="md-block">
-       <label>Status s/d Desember {{vm.curYear - 1}}</label>
+       <label>Status s/d Desember {{vm.curYear - 1}}:</label>
        <textarea ng-model="vm.isirad.statusLastYear" rows="2" md-select-on-focus></textarea>
      </md-input-container>
 
+     <div layout="row" flex>
+      <label flex="20">Persentasi Capaian:</label>
+      <md-input-container flex="70">
+        <md-slider ng-model="vm.isirad.persentasiCapaian" flex md-discrete step="5" min="0" max="100" aria-label="rating" id="capaian-slider">
+        </md-slider>
+      </md-input-container>
+      <md-input-container flex="10">
+        <input type="number" ng-model="vm.isirad.persentasiCapaian" aria-label="green" aria-controls="capaian-slider" disabled>
+        <md-icon>%</md-icon>
+      </md-input-container>
+     </div>
+
      <md-input-container class="md-block">
-       <label>Keterangan</label>
+       <label>Keterangan:</label>
        <textarea ng-model="vm.isirad.keterangan" rows="2" md-select-on-focus></textarea>
      </md-input-container>
 
@@ -90,61 +102,6 @@
      </md-input-container>
 
    </md-content>
-
-
-
-    <!-- <md-input-container>
-      <label>Instansi Penanggung Jawab</label>
-      <md-select ng-model="vm.isirad.selectedSkpd" multiple>
-        <md-select-header class="demo-select-header">
-          <input ng-model="vm.searchTerm"
-                 type="search"
-                 placeholder="Cari SKPD.."
-                 class="demo-header-searchbox md-text">
-        </md-select-header>
-        <md-optgroup label="skpd">
-          <md-option ng-value="SKPD" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
-        </md-optgroup>
-      </md-select>
-    </md-input-container> -->
-
-
-    <!-- <div layout-gt-sm="row">
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>City</label>
-        <input ng-model="user.city">
-      </md-input-container>
-
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>State</label>
-        <md-select ng-model="user.state">
-          <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-            {{state.abbrev}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-
-      <md-input-container class="md-block" flex-gt-sm>
-        <label>Postal Code</label>
-        <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-               required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-
-        <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-          <div ng-message="required" class="my-message">You must supply a postal code.</div>
-          <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-            code.
-          </div>
-          <div ng-message="md-maxlength" class="my-message">
-            Don't use the long version silly...we don't need to be that specific...
-          </div>
-        </div>
-      </md-input-container>
-    </div>
-
-    <md-input-container class="md-block">
-      <label>Biography</label>
-      <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-    </md-input-container> -->
 
   </form>
 

@@ -19,6 +19,7 @@ function RadService($http, $state, moment) {
 			targetLastYear: data.targetLastYear,
 			targetThisYear: data.targetThisYear,
 			statusLastYear: data.statusLastYear,
+			persentasiCapaian: data.persentasiCapaian,
 			keterangan: data.keterangan,
       pembuat: data.pembuat
 		}).then(function(result){
@@ -50,6 +51,7 @@ function RadService($http, $state, moment) {
 			targetLastYear: data.target_last_year,
 			targetThisYear: data.target_this_year,
 			statusLastYear: data.status_last_year,
+			persentasiCapaian: data.persentasi_capaian,
 			keterangan: data.keterangan
 		}).then(function(result){
 			if (result.status !== 200) {

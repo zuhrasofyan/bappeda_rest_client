@@ -90,6 +90,18 @@
                <textarea ng-model="$ctrl.renaksi.status_last_year" rows="2" md-select-on-focus></textarea>
              </md-input-container>
 
+             <div layout="row" flex>
+              <label flex="20">Persentasi Capaian: </label>
+              <md-input-container flex="70">
+                <md-slider ng-model="$ctrl.renaksi.persentasi_capaian" flex md-discrete step="5" min="0" max="100" aria-label="rating" id="capaian-slider">
+                </md-slider>
+              </md-input-container>
+              <md-input-container flex="10">
+                <input type="number" ng-model="$ctrl.renaksi.persentasi_capaian" aria-label="green" aria-controls="capaian-slider" disabled>
+                <md-icon>%</md-icon>
+              </md-input-container>
+            </div>
+
              <md-input-container class="md-block">
                <label>Keterangan</label>
                <textarea ng-model="$ctrl.renaksi.keterangan" rows="2" md-select-on-focus></textarea>
