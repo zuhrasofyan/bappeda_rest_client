@@ -21,8 +21,8 @@
         <md-menu-content width="3">
             <md-menu-item><md-button ui-sref="dashboard.home" ui-sref-active="md-warn">Beranda</md-button></md-menu-item>
             <md-menu-item><md-button ui-sref="dashboard.user" ui-sref-active="md-warn">Profil</md-button></md-menu-item>
-            <md-menu-item ng-if="vm.user.role !== 'user'"><md-button ui-sref="dashboard.rad" ui-sref-active="md-warn" ng-if="vm.user.role !== 'user'">Isi RAD</md-button></md-menu-item>
             <md-menu-item><md-button ui-sref="dashboard.showRad" ui-sref-active="md-warn">Data RAD</md-button></md-menu-item>
+            <md-menu-item ng-if="vm.user.role !== 'user'"><md-button ui-sref="dashboard.rad" ui-sref-active="md-warn" ng-if="vm.user.role !== 'user'">Isi RAD</md-button></md-menu-item>
         </md-menu-content>
       </md-menu>
     </div>
