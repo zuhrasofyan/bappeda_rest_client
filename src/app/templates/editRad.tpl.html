@@ -121,7 +121,7 @@
       <md-button ng-click="$ctrl.answer('cancel')">
        Cancel
       </md-button>
-      <md-button class="md-primary md-raised" ng-click="$ctrl.clickFormRad($ctrl.renaksi.id, $ctrl.renaksi)">
+      <md-button class="md-primary md-raised" ng-click="$ctrl.clickFormRad($ctrl.renaksi.id, $ctrl.renaksi)" ng-disabled="editForm.$invalid">
        Ubah
       </md-button>
     </md-dialog-actions>

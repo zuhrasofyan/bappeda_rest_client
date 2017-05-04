@@ -3,7 +3,7 @@ angular
   .module('app')
   .service('EditUserService', EditUserService);
 
-function EditUserService($http, $state, store) {
+function EditUserService($http, $state, store, UserService) {
   var vm = this;
 
   function editCurrentUser (id, data) {
@@ -19,11 +19,11 @@ function EditUserService($http, $state, store) {
 				}
 			} else if (result.status === 200) {
         // Update local storage with new user data so it can correctly displayed by other components
-        store.set('user', data);
+        UserService.setCurrentUser(data);
         // then alert user
         alert ('Data berhasil diubah');
         //reload to display the change
-				$state.reload();
+			  $state.reload();
 			}
     })
   }

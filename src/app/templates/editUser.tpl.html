@@ -1,0 +1,46 @@
+<md-dialog aria-label="Form Edit User" flex="60">
+  <div>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Form Ubah Profil</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="$ctrl.cancel()">
+          x
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div>
+          <form name="editUserForm" novalidate ng-submit="editUserForm.$valid && $ctrl.clickFormUser($ctrl.userData.id, $ctrl.userData)">
+
+           <md-content layout-padding>
+             <md-input-container class="md-block">
+               <label>Nama: </label>
+               <textarea name="nama" ng-model="$ctrl.userData.username" rows="1" required></textarea>
+               <div ng-messages="editUserForm.nama.$error">
+                 <div ng-message="required">Harus diisi.</div>
+               </div>
+             </md-input-container>
+
+             <md-dialog-actions layout="row">
+              <span flex></span>
+              <md-button ng-click="$ctrl.cancel()">Cancel</md-button>
+              <md-button type="submit" class="md-primary md-raised"  aria-label="submit" ng-disabled="editUserForm.$invalid">
+              Ubah
+              </md-button>
+            </md-dialog-actions>
+
+           </md-content>
+
+          </form>
+
+        </div>
+
+      </div>
+    </md-dialog-content>
+
+    
+  </div>
+</md-dialog>
