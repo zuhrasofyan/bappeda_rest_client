@@ -7,8 +7,8 @@ angular
   });
 
 function dashboardController(UserService) {
-  vm = this;
-  //vm.isAuthenticated = $rootScope.isAuthenticated;
+  var vm = this;
+  // vm.isAuthenticated = $rootScope.isAuthenticated;
 
   function getUser() {
     var a = UserService.getCurrentUser();
@@ -17,5 +17,4 @@ function dashboardController(UserService) {
 
   vm.user = getUser();
 
- 
 }

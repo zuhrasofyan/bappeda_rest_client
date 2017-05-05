@@ -1,8 +1,8 @@
 angular
   .module('app', ['ui.router', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ngMessages', 'angularMoment', 'md.data.table', 'lfNgMdFileInput'])
   .run(function ($rootScope, $state, store, jwtHelper, $location, authManager){
-    //authManager.checkAuthOnRefresh();
-    //run check on each of refreshed state
+    // authManager.checkAuthOnRefresh();
+    // run check on each of refreshed state
     $rootScope.$on('$locationChangeStart', function() {
       // Get the JWT that is saved in localStorage
       // and if it is there, check whether it is expired.
@@ -18,8 +18,8 @@ angular
       else {
         // Otherwise, redirect to the home route
         $rootScope.isAuthenticated = false;
-        //do not use $state.go('login') since it will redirect everything to login even when in the unprotected state
-        //$location.path('/');
+        // do not use $state.go('login') since it will redirect everything to login even when in the unprotected state
+        // $location.path('/');
       }
     });
   })
@@ -28,6 +28,6 @@ angular
       .primaryPalette('orange')
       .accentPalette('green');
     $mdThemingProvider.theme('greenTheme')
-      .primaryPalette('green')
-    //$mdThemingProvider.setDefaultTheme('altTheme');
-  })
+      .primaryPalette('green');
+    // $mdThemingProvider.setDefaultTheme('altTheme');
+  });

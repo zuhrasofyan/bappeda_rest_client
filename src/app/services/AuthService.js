@@ -1,9 +1,8 @@
 angular
   .module('app')
-  .service('AuthService', function ($http, $rootScope, store, UserService, authManager, $state, jwtHelper){
+  .service('AuthService', function ($http, $rootScope, store, UserService, authManager, $state){
     var vm = this;
-    //var isAuthenticated = false;
-    
+
     function submitLogin(loginData) {
       $http.post('http://localhost:1337/auth/login', {
         email: loginData.email,
@@ -21,15 +20,14 @@ angular
           authManager.authenticate();
 
           $state.go('dashboard.home');
-          //console.log(jwtHelper.decodeToken(store.get('token')));
-          //console.log(jwtHelper.getTokenExpirationDate(store.get('token')));
+
         } else {
           if (result.status === 400) {
             alert("Email atau password anda salah. Silahkan coba lagi!");
           } 
           alert("Server tidak merespon.. Coba lagi beberapa saat atau hubungi admin");
-        //TODO: else check if bad credential (result.status !== 200) return, show notification
-        //else {}
+        // TODO: else check if bad credential (result.status !== 200) return, show notification
+        // else {}
         }
       })
     };
@@ -38,14 +36,11 @@ angular
       store.remove('user');
       store.remove('token');
 
-      //$location.path('/');
       authManager.unauthenticate();
       $state.go('login');
-      //console.log(authManager.isAuthenticated());
     }
 
-    
-    //register the functions
+    // register the functions
     vm.submitLogin = submitLogin;
     vm.logout = logout;
 

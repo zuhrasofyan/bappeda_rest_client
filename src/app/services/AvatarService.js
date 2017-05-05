@@ -22,7 +22,7 @@ function AvatarService($http, $state) {
       transformRequest: angular.identity,
       headers: {'Content-Type': undefined}
     })
-    .then(function(result){
+    .then(function (result) {
       if (result.status === 200) {
         alert('Berhasil di unggah');
         $state.reload();

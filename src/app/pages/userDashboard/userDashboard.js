@@ -6,10 +6,10 @@ angular
     controllerAs: 'vm'
   });
 
-function userDashboardController(store, UserService, $http, $scope, AvatarService, $state, $mdDialog, EditUserService) {
+function userDashboardController(store, UserService, $http, $scope, AvatarService, $state, $mdDialog) {
   var vm = this;
-  
-  //get current user data from store in UserService
+
+  // get current user data from store in UserService
   function getUser() {
     var a = UserService.getCurrentUser();
     return a;
@@ -18,20 +18,14 @@ function userDashboardController(store, UserService, $http, $scope, AvatarServic
   vm.user = getUser();
 
   // get original current user data directly from backend. this is necessary to compare between stored and original user data
-  function thisUser(){
-    return $http.get('http://localhost:1337/user/profil/'+vm.user.id);
+  function thisUser() {
+    return $http.get('http://localhost:1337/user/profil/' + vm.user.id);
   }
-  thisUser().then(function(d){
+  thisUser().then(function (d){
     vm.thisUser = d.data;
-  })
+  });
 
-  // for tab allUser
-  // var request = $http.get('http://localhost:1337/officer/get-all-user').then(function(response){
-  //   vm.allUser = response.data;
-  //   return response.data;
-  // });
-
-  function allUser(){
+  function allUser (){
     return $http.get('http://localhost:1337/officer/get-all-user');
   }
 
@@ -76,7 +70,7 @@ function userDashboardController(store, UserService, $http, $scope, AvatarServic
 
   function UserEditController($element, $state, user, $mdDialog, EditUserService) {
     var $ctrl = this;
-    //const aa = vm.user;
+    // const aa = vm.user;
     $ctrl.userData = user;
     
     $ctrl.cancel = function() {
