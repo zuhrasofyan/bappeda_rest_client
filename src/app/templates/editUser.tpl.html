@@ -18,9 +18,10 @@
            <md-content layout-padding>
              <md-input-container class="md-block">
                <label>Nama: </label>
-               <textarea name="nama" ng-model="$ctrl.userData.username" rows="1" required></textarea>
+               <input md-maxlength="30" name="nama" ng-model="$ctrl.userData.username" required></input>
                <div ng-messages="editUserForm.nama.$error">
                  <div ng-message="required">Harus diisi.</div>
+                 <div ng-message="md-maxlength">Tidak boleh lebih dari 30 karakter</div>
                </div>
              </md-input-container>
 
