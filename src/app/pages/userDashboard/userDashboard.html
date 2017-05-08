@@ -7,10 +7,7 @@
           <md-card-title layout="row" layout-align="space-around start" layout-padding>
             <md-card-title-media>
               <div class="md-media-lg card-media">
-                <!--<img ng-src="assets/images/profile-pic.png" alt="">-->
-                <!--<img src="http://localhost:3000/assets/images/profile-pic.png" alt="">-->
-                
-                <img ng-src="{{vm.getAvatar}}" alt="">
+                <img ng-src="{{vm.getAvatar}}" onerror="this.src='assets/images/profile-pic.png'" alt="">
               </div>
             </md-card-title-media>
             <md-card-title-text>
