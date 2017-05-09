@@ -26,9 +26,31 @@ function EditUserService($http, $state, store, UserService) {
 			  $state.reload();
 			}
     })
+  };
+
+  function editUserRole (id, data) {
+    console.log(data);
+    $http.patch('http://localhost:1337/admin/change-user-role/'+id, {
+      role: data
+    })
+    .then(function(result){
+      if (result.status !== 200) {
+				if (result.status === 403) {
+					alert("Anda tidak memiliki akses untuk mengubah data!");
+				} else {
+					alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
+				}
+			} else if (result.status === 200) {
+        // then alert user
+        alert ('Data berhasil diubah');
+        //reload to display the change
+			  $state.reload();
+			}
+    })
   }
 
   vm.editCurrentUser = editCurrentUser;
+  vm.editUserRole = editUserRole;
 }
 
 

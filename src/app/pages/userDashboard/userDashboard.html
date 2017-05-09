@@ -83,12 +83,23 @@
           </tr>
         </theader>
         <tbody>
-          <tr ng-repeat="user in vm.allUser | orderBy:'role'">
+          <tr ng-repeat="user in vm.allUser | orderBy:'id'">
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.role}}</td>
+            <td> <span ng-if="vm.user.role !== 'admin'">{{user.role}}</span>
+              <md-input-container ng-if="vm.user.role == 'admin'">
+                <label>Tipe:</label>
+                <md-select ng-model="user.role">
+                  <md-optgroup label="Role">
+                    <md-option ng-value="role.name" ng-init="user.role" ng-repeat="role in vm.userRoles">{{role.name}}</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </td>
             <td>{{user.isDeleted}}</td>
-            <td>Button</td>
+            <td>
+                <md-button class="md-primary md-raised" aria-label="submit" ng-click="vm.editRole(user.id, user.role)">Ubah</md-button>
+            </td>
           </tr>
         </tbody>
       </table>
