@@ -1,0 +1,42 @@
+<md-dialog aria-label="Form Tambah Bukti RAD" flex="60">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Form Tambah Bukti RAD</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close" ng-click="$ctrl.cancel()">
+          x
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div>
+
+          <form name="addBuktiForm" novalidate>
+
+           <md-content layout-padding>
+             <md-input-container class="md-block">
+               {{$ctrl.renaksi}}
+             </md-input-container>             
+           </md-content>
+
+          </form>
+
+        </div>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="$ctrl.answer('cancel')">
+       Cancel
+      </md-button>
+      <md-button class="md-primary md-raised"  ng-disabled="addBuktiForm.$invalid">
+       Ubah
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
