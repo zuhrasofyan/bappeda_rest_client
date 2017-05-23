@@ -8,7 +8,7 @@ angular
     controllerAs: 'vm'
   });
 
-  function showRadDashboardController(RadService, $mdDialog, $state, UserService) {
+  function showRadDashboardController(RadService, $mdDialog, $state, UserService, BuktiRadService) {
     var vm = this;
 
     function getUser() {
@@ -47,6 +47,8 @@ angular
     ** MODAL DIALOG WITH TEMPLATE
     */
     vm.customFullscreen = false;
+
+    // EDIT DIALOG 
     vm.showAdvanced = function(ev, _renaksi) {
       $mdDialog.show({
         controller: DialogController,
@@ -71,6 +73,7 @@ angular
       });
     };
 
+    // EDIT DIALOG CONTROLLER
     function DialogController($mdDialog, renaksi, RadService) {
       var $ctrl = this;
 
@@ -105,4 +108,71 @@ angular
       }
       $ctrl.clickFormRad = clickFormRad;
     }
+
+    // ADD BUKTI DIALOG 
+    vm.showAddBuktiDialog = function(ev, _renaksi) {
+      var _hello = 'helloworld';
+      var _buktiList = BuktiRadService.getListBuktiRad(_renaksi.id);
+      var _user = vm.user;
+      $mdDialog.show({
+        controller: AddBuktiController,
+        controllerAs: '$ctrl',
+        templateUrl: 'app/templates/addBukti.tpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        // carrying scope from parent
+        resolve: {
+          renaksi : function(){
+            return _renaksi;
+          },
+          buktiList: function(){
+            return _buktiList;
+          },
+          user: function() {
+            return _user;
+          }
+        },
+        clickOutsideToClose:true,
+        fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+      })
+      .then(function(answer) {
+        $state.reload();
+      }, function() {
+        console.log('tutup');
+      });
+    };
+
+    // ADD BUKTI DIALOG CONTROLLER
+    function AddBuktiController($mdDialog, renaksi, BuktiRadService, $scope, buktiList, user) {
+      var $ctrl = this;
+
+      // function getGambar() {
+      //   var a = BuktiRadService.getListBuktiRad(renaksi.id);
+      //   return a;
+      // };
+      $ctrl.user = user;
+      $ctrl.buktiList = buktiList.data;
+      $ctrl.getGambar = BuktiRadService.getListBuktiRad(renaksi.id);
+
+      $ctrl.renaksi = renaksi;
+
+      $ctrl.hide = function() {
+        $mdDialog.hide();
+      };
+
+      $ctrl.cancel = function() {
+        $mdDialog.cancel();
+      };
+
+      $ctrl.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+
+      function clickFormBuktiRad(id){
+        BuktiRadService.submitBuktiRad($scope.files, id);
+        $mdDialog.hide();
+      }
+      $ctrl.clickFormBuktiRad = clickFormBuktiRad;
+    }
+
   }
