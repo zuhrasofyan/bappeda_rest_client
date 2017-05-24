@@ -28,26 +28,34 @@
               </md-card>
             </div>
           </md-content>
-
-            <form name="addBuktiForm" novalidate ng-if="$ctrl.user.role !== 'user'">
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span>Tambah gambar bukti (Hanya format JPG dan PNG)</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <form name="addBuktiForm" novalidate>
                 <lf-ng-md-file-input name="bukti" lf-files="files" accept="image/*" lf-mimetype="image/*" lf-filesize="2MB" lf-placeholder="Unggah gambar bukti RAD anda" preview lf-browse-label="Pilih..." lf-required></lf-ng-md-file-input>
                 <div ng-messages="addBuktiForm.bukti.$error" style="color:red;">
                     <div ng-message="required">Belum ada gambar dipilih</div>
                     <div ng-message="filesize">Ukuran File maksimal 2 MB</div>
                     <div ng-message="mimetype">Mimetype error.</div>
                 </div>
-                <div layout="row">
-                  <md-button class="md-warn md-raised"  ng-disabled="addBuktiForm.$invalid" ng-click="$ctrl.clickFormBuktiRad($ctrl.renaksi.id)">
-                    Tambah
-                  </md-button>
-                </div>
-            </form>
+                
+              </form>
+              <md-button class="md-primary md-raised"  ng-disabled="addBuktiForm.$invalid" ng-click="$ctrl.clickFormBuktiRad($ctrl.renaksi.id)">
+                Tambah
+              </md-button>
+            </md-card-content>
+          </md-card>
+            
       </div>
     </md-dialog-content>
 
     <md-dialog-actions layout="row">
       <span flex></span>
-      <md-button class="md-primary md-raised" ng-click="$ctrl.answer('cancel')">
+      <md-button ng-click="$ctrl.answer('cancel')">
        Tutup
       </md-button>
     </md-dialog-actions>
