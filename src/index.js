@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ngMessages', 'angularMoment', 'md.data.table', 'lfNgMdFileInput'])
+  .module('app', ['ui.router', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ngMessages', 'angularMoment', 'md.data.table', 'lfNgMdFileInput', 'chart.js'])
   .run(function ($rootScope, $state, store, jwtHelper, $location, authManager){
     // authManager.checkAuthOnRefresh();
     // run check on each of refreshed state
