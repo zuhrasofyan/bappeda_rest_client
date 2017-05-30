@@ -1,16 +1,22 @@
 <md-tabs md-dynamic-height md-border-bottom>
   <md-tab label="Home">
     <md-content class="md-padding">
-      <h4 class="md-display-1">Home</h4>
+      <h4 class="md-display-1">Beranda</h4>
       <div flex-xs flex-gt-xs="80">
+        Pilih Tahun: {{vm.lastYear}}
         <md-card md-theme-watch>
           <md-card-title layout="row" layout-align="space-around start" layout-padding>
    
             <md-card-title-text>
-              <span class="md-headline">Selamat Datang</span>
+              <span class="md-headline">Rerata (<i>average</i>) Persentasi Capaian Tahun {{vm.lastYear}}</span>
               <span class="md-subhead">{{vm.user.username}}</span>
             </md-card-title-text>
           </md-card-title>
+
+          <md-card-content>
+            <canvas class="chart chart-bar" chart-data="vm.avgMasalahPersentasi" chart-labels="vm.jenisMasalah" 
+	             chart-options="vm.options"></canvas>
+          </md-card-content>
           
           <md-card-actions layout="row" layout-align="end center">
             <md-button>Action 2</md-button>
