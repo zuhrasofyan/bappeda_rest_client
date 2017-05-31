@@ -2,7 +2,7 @@
   <md-tab label="Home">
     <md-content class="md-padding">
       <h4 class="md-display-1">Beranda</h4>
-      <div flex-xs flex-gt-xs="80">
+      <div flex-xs>
         Pilih Tahun: {{vm.lastYear}}
         <md-card md-theme-watch>
           <md-card-title layout="row" layout-align="space-around start" layout-padding>
@@ -14,7 +14,7 @@
           </md-card-title>
 
           <md-card-content>
-            <canvas class="chart chart-bar" chart-data="vm.avgMasalahPersentasi" chart-labels="vm.jenisMasalah" 
+            <canvas height="80" class="chart chart-bar" chart-data="vm.avgMasalahPersentasi" chart-labels="vm.jenisMasalah" 
 	             chart-options="vm.options"></canvas>
           </md-card-content>
           
@@ -22,8 +22,36 @@
             <md-button>Action 2</md-button>
           </md-card-actions>
         </md-card>
+      
       </div>
     </md-content>
+
+    <md-content class="md-padding"> 
+      <div flex-xs>  
+        <section ng-repeat="data in vm.dataTahunan">
+          <md-card>
+            <md-subheader class="md-primary">{{data.kategori}}</md-subheader>
+            <md-card-content>
+              <table class="table">
+                <theader>
+                  <tr>
+                    <td width="90%">Detail Permasalahan</td>
+                    <td width="10%">Persentasi Capaian</td>
+                  </tr>
+                </theader>
+                <tbody>
+                  <tr ng-repeat="ren in data.renaksi">
+                    <td>{{ren.masalah}}</td>
+                    <td>{{ren.persentasi_capaian}} %</td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-card-content>
+          </md-card>       
+        </section>
+      </div>
+    </md-content>
+
   </md-tab>
 </md-tabs>
 
