@@ -78,4 +78,8 @@ function RadService($http, $state, moment) {
   }
   vm.getRadKategori = getRadKategori;
 
+	function getTahun() {
+		return $http.get('http://localhost:1337/renaksi/tahun');
+	}
+	vm.getTahun = getTahun;
 }
