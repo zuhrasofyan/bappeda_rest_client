@@ -24,8 +24,9 @@ angular
         } else {
           if (result.status === 400) {
             alert("Email atau password anda salah. Silahkan coba lagi!");
-          } 
-          alert("Server tidak merespon.. Coba lagi beberapa saat atau hubungi admin");
+          } else {
+            alert("Server tidak merespon.. Coba lagi beberapa saat atau hubungi admin");
+          }         
         // TODO: else check if bad credential (result.status !== 200) return, show notification
         // else {}
         }

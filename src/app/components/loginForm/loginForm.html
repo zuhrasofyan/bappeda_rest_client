@@ -13,7 +13,7 @@
             </md-toolbar>
 
             <md-content layout-padding>
-                <form id="loginform" class="form-horizontal" role="form">      
+                <form id="loginform" class="form-horizontal" ng-submit="vm.clickLogin(vm.formLogin)">      
                     <md-input-container class="md-icon-float md-block">
                     <!-- Use floating label instead of placeholder -->
                         <label>Email</label>
@@ -30,14 +30,14 @@
                         <input ng-model="vm.formLogin.password" type="password">
                     </md-input-container>
                     <!-- SUBMIT BUTTON -->
-                    <div layout="column" md-theme="greenTheme">
+                    <md-input-container layout="column" md-theme="greenTheme">
                         <!--<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="vm.clickLogin(vm.formLogin)">
                             <span class="glyphicon glyphicon-flash"></span> Submit!
                         </button>-->
-                        <md-button class="md-raised md-primary" aria-label="Submit" ng-click="vm.clickLogin(vm.formLogin)">
+                        <md-button type="submit" ng-disabled="loginForm.$invalid" class="md-raised md-primary" aria-label="Submit" >
                             <span class="glyphicon glyphicon-flash"></span> Submit!
                         </md-button>
-                    </div>
+                    </md-input-container>
                 </form>    
             </md-content>
 
