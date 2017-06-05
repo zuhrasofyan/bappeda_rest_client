@@ -2,14 +2,21 @@
   <md-tab label="Home">
     <md-content class="md-padding">
       <h4 class="md-display-1">Beranda</h4>
+      <label for="">Pilih tahun: </label>
+      <md-input-container>
+          <md-select ng-model="vm.tahun" ng-change="vm.changeTahun(vm.tahun)">
+            <md-option ng-value="tahun.tahun" ng-repeat="tahun in vm.tahunList">{{tahun.tahun}}</md-option>
+          </md-select>
+        </md-input-container>
       <div flex-xs>
-        Pilih Tahun: {{vm.lastYear}}
-        <md-card md-theme-watch>
+        
+
+        <md-card md-theme-watch ng-if="vm.dataTahunan.length !== 0">
           <md-card-title layout="row" layout-align="space-around start" layout-padding>
    
             <md-card-title-text>
-              <span class="md-headline">Rerata (<i>average</i>) Persentasi Capaian Tahun {{vm.lastYear}}</span>
-              <span class="md-subhead">{{vm.user.username}}</span>
+              <span class="md-headline">Rerata (<i>average</i>) Persentasi Capaian Tahun {{vm.tahun}}</span>
+              <span class="md-subhead"></span>
             </md-card-title-text>
           </md-card-title>
 
@@ -22,11 +29,19 @@
             <md-button>Action 2</md-button>
           </md-card-actions>
         </md-card>
+
+        <md-card md-theme-watch ng-if="vm.dataTahunan.length === 0">
+          <md-card-title layout="row" layout-align="space-around start" layout-padding>
+            <md-card-title-text>
+              <span class="md-headline">Tidak ada data yang dapat ditampilkan</span>
+            </md-card-title-text>
+          </md-card-title>
+        </md-card>
       
       </div>
     </md-content>
 
-    <md-content class="md-padding"> 
+    <md-content class="md-padding" ng-if="vm.dataTahunan.length !== 0"> 
       <div flex-xs>  
         <section ng-repeat="data in vm.dataTahunan">
           <md-card>

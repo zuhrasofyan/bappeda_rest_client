@@ -59,9 +59,15 @@
       </md-table-container>
 
     </div>
-    <div class="" ng-if="data.renaksi.length == 0">
-      Tidak ada data
-    </div>
   </md-card>
 
+</div>
+<div class="" ng-if="vm.dataTahunan.length == 0">
+  <md-card>
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>Tidak Ada Data</span>
+      </div>
+    </md-toolbar>
+  </md-card>
 </div>

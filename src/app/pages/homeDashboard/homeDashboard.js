@@ -43,15 +43,17 @@ function homeDashboardController(UserService, $http, RadService) {
   var lastYear = curYear -1;
   vm.curYear = curYear;
   vm.lastYear = lastYear;
-  vm.tahun = '';
+  vm.tahun = lastYear;
 
   // Initial data retrieved from REST API
-  // vm.persentasi = [];
-  // vm.masalah = [];
+  RadService.getTahun().then(function(d){
+    vm.tahunList = d.data;
+  });
 
   vm.jenisMasalah = [];
   vm.masalahPersentasi = [];
   vm.avgMasalahPersentasi = [];
+  
   RadService.getRadDataTahunan(vm.lastYear).then(function(d){
     vm.dataTahunan = d.data;
     for (i=0; i< d.data.length; i++){
@@ -69,11 +71,34 @@ function homeDashboardController(UserService, $http, RadService) {
       // sum an average of each kategory percentage
       vm.avgMasalahPersentasi.push(Math.floor(x/(d.data[i].renaksi.length)));
     }
-    // angular.forEach(d.data[0].renaksi, function(value){
-    //   vm.persentasi.push(value.persentasi_capaian);
-    //   vm.masalah.push(value.masalah);
-    // })
   });
+
+  //change vm.dataTahunan if user select other years
+  function changeTahun(tahun) {
+    RadService.getRadDataTahunan(tahun).then(function(d){
+      vm.dataTahunan = d.data;
+      vm.jenisMasalah = [];
+      vm.masalahPersentasi = [];
+      vm.avgMasalahPersentasi = [];
+      for (i=0; i< d.data.length; i++){
+      // push each kategori into jenis masalah
+      vm.jenisMasalah[i] = d.data[i].kategori;
+      var arr = [];
+      var x = 0;
+      for (j=0; j< d.data[i].renaksi.length; j++) {
+        arr.push(d.data[i].renaksi[j].persentasi_capaian);
+        x= x+d.data[i].renaksi[j].persentasi_capaian;
+      }
+      // push to array:
+      // each persentasi into multidimensional array
+      vm.masalahPersentasi.push(arr);
+      // sum an average of each kategory percentage
+      vm.avgMasalahPersentasi.push(Math.floor(x/(d.data[i].renaksi.length)));
+    }
+
+    });
+  };
+  vm.changeTahun = changeTahun;
   
 
   //for tab user 
