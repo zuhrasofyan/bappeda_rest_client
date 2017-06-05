@@ -14,6 +14,7 @@
       <div class="md-dialog-content">
 
           <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap>
+            <div ng-if="$ctrl.buktiList.length == 0">Belum Ada Bukti. Silahkan unggah dengan menggunakan pengaturan di bawah.</div>
             <div ng-repeat="image in $ctrl.buktiList" flex-xs flex-gt-xs="50" layout="column">
                 <md-card>
                   <img ng-src="http://localhost:1337/renaksi/bukti-rad/{{image.imageName}}" class="md-card-image" alt="Washed Out">
