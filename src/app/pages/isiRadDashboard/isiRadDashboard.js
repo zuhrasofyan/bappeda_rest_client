@@ -26,10 +26,10 @@ function isiRadDashboardController($element, RadService, UserService) {
     vm.kategoriList = d.data;
   });
 
-  /* TODO: get list of tahun from backend */
-  vm.tahunList = [
-    2016, 2017
-  ];
+  RadService.getTahun().then(function(d){
+    vm.tahunList = d.data;
+  });
+
 
   vm.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
   vm.selectedSkpd = [];

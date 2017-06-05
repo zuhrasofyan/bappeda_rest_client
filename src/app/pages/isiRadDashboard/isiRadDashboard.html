@@ -18,7 +18,7 @@
          <label>Tahun RAD:</label>
          <md-select ng-model="vm.isirad.tahun">
            <md-optgroup label="Tahun">
-             <md-option ng-value="tahun" ng-repeat="tahun in vm.tahunList">{{tahun}}</md-option>
+             <md-option ng-value="tahun.tahun" ng-repeat="tahun in vm.tahunList">{{tahun.tahun}}</md-option>
            </md-optgroup>
          </md-select>
        </md-input-container>
