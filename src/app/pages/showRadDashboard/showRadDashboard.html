@@ -1,6 +1,11 @@
 <md-content md-theme="docs-dark" layout-padding>
   <h3>Detail Data RAD</h3>
-
+  <md-input-container>
+    <label>Pilih tahun: </label>
+    <md-select ng-model="vm.tahun" ng-change="vm.changeTahun(vm.tahun)">
+      <md-option ng-value="tahun.tahun" ng-repeat="tahun in vm.tahunList">{{tahun.tahun}}</md-option>
+    </md-select>
+  </md-input-container>
 </md-content>
 
 <div class="" ng-repeat="data in vm.dataTahunan">

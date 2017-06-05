@@ -24,12 +24,16 @@ angular
     var lastYear = curYear -1;
     vm.curYear = curYear;
     vm.lastYear = lastYear;
-    vm.tahun = '';
+    vm.tahun = lastYear;
     // set initial data
     vm.selected = [];
     vm.query = {
       order: 'skpd'
     };
+
+    RadService.getTahun().then(function(d){
+      vm.tahunList = d.data;
+    });
 
     //initial data retrieved from REST API
     RadService.getRadDataTahunan(vm.lastYear).then(function(d){
@@ -37,11 +41,12 @@ angular
     });
 
     //change vm.dataTahunan if user select other years
-    vm.changeTahun = function() {
-      RadService.getRadDataTahunan(vm.tahun).then(function(d){
+    function changeTahun(tahun) {
+      RadService.getRadDataTahunan(tahun).then(function(d){
         vm.dataTahunan = d.data;
       });
     };
+    vm.changeTahun = changeTahun;
 
     /*
     ** MODAL DIALOG WITH TEMPLATE
