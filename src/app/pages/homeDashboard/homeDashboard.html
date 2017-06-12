@@ -4,7 +4,7 @@
       <h4 class="md-display-1">Beranda</h4>
       <label for="">Pilih tahun: </label>
       <md-input-container>
-          <md-select ng-model="vm.tahun" ng-change="vm.changeTahun(vm.tahun)">
+          <md-select aria-label="Select Tahun" ng-model="vm.tahun" ng-change="vm.changeTahun(vm.tahun)">
             <md-option ng-value="tahun.tahun" ng-repeat="tahun in vm.tahunList">{{tahun.tahun}}</md-option>
           </md-select>
         </md-input-container>
@@ -67,6 +67,41 @@
       </div>
     </md-content>
 
+  </md-tab>
+
+  <md-tab label="Pengaturan RAD" ng-if="vm.user.role !== 'user'">
+    <md-content class="md-padding">
+      <h4 class="md-display-1">Pengaturan RAD</h4>
+      <div flex-xs>
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Tambahkan Tahun</span>
+              {{vm.tahunList}}
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <div>
+              <form name="addYearForm" novalidate aria-label="Add Year" ng-submit="addYearForm.$valid && vm.clickFormAddYear(vm.newTahun)">
+                
+                <md-input-container>
+                  <label>Tahun: </label>
+                  <input ng-model="vm.newTahun" name="tahun" type="number">
+                  <div ng-messages="addYearForm.tahun.$error">
+                    <div ng-message="required">Harus diisi.</div>
+                    <div ng-message="number">Harus berupa angka</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container>
+                  <md-button type="submit" class="md-primary md-raised" aria-label="submit" ng-disabled="addYearForm.$invalid">Tambah</md-button>
+                </md-input-container>
+              </form>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </md-content>
   </md-tab>
 </md-tabs>
 

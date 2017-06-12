@@ -6,7 +6,7 @@ angular
     controllerAs: 'vm'
   })
 
-function homeDashboardController(UserService, $http, RadService) {
+function homeDashboardController(UserService, $http, RadService, $scope) {
   vm = this;
 
   vm.options = {
@@ -101,11 +101,29 @@ function homeDashboardController(UserService, $http, RadService) {
   vm.changeTahun = changeTahun;
   
 
-  //for tab user 
+  // for tab user 
   function getUser() {
     var a = UserService.getCurrentUser();
     return a;
   }
+  vm.user = getUser();
+
+  // for tab pengaturan rad
+  vm.newTahun = '';
+
+  function clickFormAddYear(tahun) {
+    RadService.addTahun(tahun);
+
+    // Set time out used to update a vm scope that use scope.apply. otherwise it will throw error, or not updated at all...
+    setTimeout(function(){
+      $scope.$apply(RadService.getTahun().then(function(d){
+        vm.tahunList = d.data;
+        vm.newTahun = '';
+      }))
+    }, 1000)
+
+  };
+  vm.clickFormAddYear = clickFormAddYear;
 
   vm.user = getUser();
 
