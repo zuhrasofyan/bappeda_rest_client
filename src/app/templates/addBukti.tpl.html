@@ -29,15 +29,16 @@
               </md-card>
             </div>
           </md-content>
-          <md-card>
+
+          <md-card ng-if="$ctrl.user.role !== 'user'">
             <md-card-title>
               <md-card-title-text>
                 <span>Tambah gambar bukti (Hanya format JPG dan PNG). Ukuran gambar tidak lebih dari 1 Mb.</span>
               </md-card-title-text>
             </md-card-title>
             <md-card-content>
-              <form name="addBuktiForm" novalidate>
-                <lf-ng-md-file-input name="bukti" lf-files="files" accept="image/*" lf-mimetype="image/*" lf-filesize="2MB" lf-placeholder="Unggah gambar bukti RAD anda" preview lf-browse-label="Pilih..." lf-required></lf-ng-md-file-input>
+              <form name="addBuktiForm">
+                <lf-ng-md-file-input name="bukti" lf-files="$ctrl.files" accept="image/*" lf-mimetype="image/*" lf-filesize="2MB" lf-placeholder="Unggah gambar bukti RAD anda" preview lf-browse-label="Pilih..." lf-required></lf-ng-md-file-input>
                 <div ng-messages="addBuktiForm.bukti.$error" style="color:red;">
                     <div ng-message="required">Belum ada gambar dipilih</div>
                     <div ng-message="filesize">Ukuran File maksimal 2 MB</div>

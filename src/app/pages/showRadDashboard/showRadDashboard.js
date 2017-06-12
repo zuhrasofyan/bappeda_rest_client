@@ -148,7 +148,7 @@ angular
     };
 
     // ADD BUKTI DIALOG CONTROLLER
-    function AddBuktiController($mdDialog, renaksi, BuktiRadService, $scope, buktiList, user) {
+    function AddBuktiController($mdDialog, renaksi, BuktiRadService, buktiList, user, $scope) {
       var $ctrl = this;
 
       // function getGambar() {
@@ -172,9 +172,11 @@ angular
       $ctrl.answer = function(answer) {
         $mdDialog.hide(answer);
       };
+      $ctrl.files = '';
 
       function clickFormBuktiRad(id){
-        BuktiRadService.submitBuktiRad($scope.files, id);
+        //console.log($ctrl.files);
+        BuktiRadService.submitBuktiRad($ctrl.files, id);
         $mdDialog.hide();
       }
       $ctrl.clickFormBuktiRad = clickFormBuktiRad;
