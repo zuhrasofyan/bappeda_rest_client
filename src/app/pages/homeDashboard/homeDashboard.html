@@ -133,22 +133,41 @@
               </form>
             </div>
             <div>
-              <!--<table class="table">
-                <theader>
-                  <tr>
-                    <td><b>No.</b></td>
-                    <td><b>Kategori</b></td>
-                  </tr>
-                </theader>
-                <tbody>
-                  <tr ng-repeat="kategori in vm.kategoriList">
-                    <td>{{$index+1}}.</td>
-                    <td>{{kategori.kategori}}</td>
-                  </tr>
-                </tbody>
-              </table>-->
               <span ng-repeat="kategori in vm.kategoriList">
                 <md-button class="md-raised" ng-disabled="true" class="md-primary">{{kategori.kategori}}</md-button>
+              </span>
+            </div>
+          </md-card-content>
+        </md-card>
+
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Tambah SKPD</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <div>
+              <form name="addSkpdForm" novalidate aria-label="Add SKPD" ng-submit="addSkpdForm.$valid && vm.clickFormAddSkpd(vm.newSkpd)">
+                <div layout="row" flex>
+                  
+                    <md-input-container flex="50">
+                      <label>SKPD: </label>
+                      <input ng-model="vm.newSkpd" name="skpd">
+                      <div ng-messages="addSkpdForm.skpd.$error">
+                        <div ng-message="required">Harus diisi.</div>
+                      </div>
+                    </md-input-container>
+                  
+                  <md-input-container>
+                    <md-button type="submit" class="md-primary md-raised" aria-label="submit" ng-disabled="addSkpdForm.$invalid">Tambah</md-button>
+                  </md-input-container>
+                </div>
+              </form>
+            </div>
+            <div>
+              <span ng-repeat="skpd in vm.skpdList">
+                <md-button class="md-raised" ng-disabled="true" class="md-primary">{{skpd.skpd}}</md-button>
               </span>
             </div>
           </md-card-content>
