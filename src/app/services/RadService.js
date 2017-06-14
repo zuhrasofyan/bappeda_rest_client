@@ -6,6 +6,7 @@ angular
 function RadService($http, $state, moment) {
 	var vm = this;
 
+	/* RAD Entry */
 	function submitRad(data) {
 		$http.post('http://localhost:1337/renaksi/tambah-data', {
 			nomor:data.nomor,
@@ -73,6 +74,7 @@ function RadService($http, $state, moment) {
   }
   vm.getRadDataTahunan = getRadDataTahunan;
 
+	/* RAD Tahun */
 	function addTahun(tahun) {
 		$http.post('http://localhost:1337/renaksi/tahun', {
 			tahun: tahun
@@ -95,6 +97,7 @@ function RadService($http, $state, moment) {
 	}
 	vm.getTahun = getTahun;
 
+	/* RAD Kategori */
 	function addRadKategori(kategori){
 		$http.post('http://localhost:1337/renaksi/kategori', {
 			kategori: kategori
@@ -116,4 +119,28 @@ function RadService($http, $state, moment) {
     return $http.get('http://localhost:1337/renaksi/kategori');
   }
   vm.getRadKategori = getRadKategori;
+
+	/* SKPD */
+	function addSkpd(skpd){
+		$http.post('http://localhost:1337/renaksi/skpd', {
+			skpd: skpd
+		}).then(function(result){
+			if (result.status !== 200) {
+				if (result.status === 403) {
+					alert("Anda tidak memiliki akses. Silahkan login sebagai admin atau officer!");
+				} else {
+					alert ('Ada kesalahan pada input anda atau server error.');
+				}
+			} else if (result.status === 200) {
+				alert ('SKPD berhasil ditambah');
+			}
+		})
+	}
+	vm.addSkpd = addSkpd;
+
+	function getSkpdList() {
+		return $http.get('http://localhost:1337/renaksi/skpd');
+	}
+	vm.getSkpdList = getSkpdList;
+
 }
