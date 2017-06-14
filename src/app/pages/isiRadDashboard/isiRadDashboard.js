@@ -30,9 +30,9 @@ function isiRadDashboardController($element, RadService, UserService) {
     vm.tahunList = d.data;
   });
 
-
-  vm.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
-  vm.selectedSkpd = [];
+  RadService.getSkpdList().then(function(d){
+    vm.skpdList = d.data;
+  })
 
   //set Year
   var currentTime = new Date();

@@ -64,7 +64,7 @@
                  <label>SKPD /Instansi yang Bertanggung Jawab</label>
                  <md-select ng-model="$ctrl.renaksi.skpd" multiple>
                    <md-optgroup label="SKPD">
-                     <md-option ng-value="skpd" ng-repeat="skpd in $ctrl.skpdList">{{skpd}}</md-option>
+                     <md-option ng-value="skpd.skpd" ng-repeat="skpd in $ctrl.skpdList">{{skpd.skpd}}</md-option>
                    </md-optgroup>
                  </md-select>
                </md-input-container>

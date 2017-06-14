@@ -51,10 +51,10 @@
 
      <div layout="row" flex>
        <md-input-container flex="90">
-         <label>SKPD /Instansi yang Bertanggung Jawab:</label>
+         <label>SKPD /Instansi yang Bertanggung Jawab: {{vm.isirad.selectedSkpd}}</label>
          <md-select ng-model="vm.isirad.selectedSkpd" multiple>
            <md-optgroup label="SKPD">
-             <md-option ng-value="skpd" ng-repeat="skpd in vm.skpdList">{{skpd}}</md-option>
+             <md-option ng-value="skpd.skpd" ng-repeat="skpd in vm.skpdList">{{skpd.skpd}}</md-option>
            </md-optgroup>
          </md-select>
        </md-input-container>

@@ -86,12 +86,9 @@ angular
         $ctrl.kategoriList = d.data;
       });
 
-      /* TODO: get list of tahun from backend */
-      $ctrl.tahunList = [
-        2016, 2017
-      ];
-
-      $ctrl.skpdList = ['Bappeda' ,'DPKAD' ,'Sekretariat Dewan' ,'TAPD' ,'BPM', 'Inspektorat', 'PU', 'KPPTSP', 'BKPP'];
+      RadService.getSkpdList().then(function(e){
+        $ctrl.skpdList = e.data;
+      })
 
       $ctrl.renaksi = renaksi;
 
@@ -151,10 +148,6 @@ angular
     function AddBuktiController($mdDialog, renaksi, BuktiRadService, buktiList, user, $scope) {
       var $ctrl = this;
 
-      // function getGambar() {
-      //   var a = BuktiRadService.getListBuktiRad(renaksi.id);
-      //   return a;
-      // };
       $ctrl.user = user;
       $ctrl.buktiList = buktiList.data;
       $ctrl.getGambar = BuktiRadService.getListBuktiRad(renaksi.id);
@@ -175,7 +168,6 @@ angular
       $ctrl.files = '';
 
       function clickFormBuktiRad(id){
-        //console.log($ctrl.files);
         BuktiRadService.submitBuktiRad($ctrl.files, id);
         $mdDialog.hide();
       }
