@@ -73,11 +73,6 @@ function RadService($http, $state, moment) {
   }
   vm.getRadDataTahunan = getRadDataTahunan;
 
-  function getRadKategori() {
-    return $http.get('http://localhost:1337/renaksi/kategori');
-  }
-  vm.getRadKategori = getRadKategori;
-
 	function addTahun(tahun) {
 		$http.post('http://localhost:1337/renaksi/tahun', {
 			tahun: tahun
@@ -86,7 +81,7 @@ function RadService($http, $state, moment) {
 				if (result.status === 403) {
 					alert("Anda tidak memiliki akses. Silahkan login sebagai admin atau officer!");
 				} else {
-					alert ('Ada kesalahan pada input anda atau server error. Coba lagi!');
+					alert ('Ada kesalahan pada input anda atau server error.');
 				}
 			} else if (result.status === 200) {
 				alert ('Tahun berhasil ditambah');
@@ -99,4 +94,26 @@ function RadService($http, $state, moment) {
 		return $http.get('http://localhost:1337/renaksi/tahun');
 	}
 	vm.getTahun = getTahun;
+
+	function addRadKategori(kategori){
+		$http.post('http://localhost:1337/renaksi/kategori', {
+			kategori: kategori
+		}).then(function(result){
+			if (result.status !== 200) {
+				if (result.status === 403) {
+					alert("Anda tidak memiliki akses. Silahkan login sebagai admin atau officer!");
+				} else {
+					alert ('Ada kesalahan pada input anda atau server error.');
+				}
+			} else if (result.status === 200) {
+				alert ('Kategori berhasil ditambah');
+			}
+		})
+	}
+	vm.addRadKategori = addRadKategori;
+
+	function getRadKategori() {
+    return $http.get('http://localhost:1337/renaksi/kategori');
+  }
+  vm.getRadKategori = getRadKategori;
 }

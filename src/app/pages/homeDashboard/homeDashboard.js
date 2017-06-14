@@ -50,6 +50,10 @@ function homeDashboardController(UserService, $http, RadService, $scope) {
     vm.tahunList = d.data;
   });
 
+  RadService.getRadKategori().then(function(d){
+    vm.kategoriList = d.data;
+  });
+
   vm.jenisMasalah = [];
   vm.masalahPersentasi = [];
   vm.avgMasalahPersentasi = [];
@@ -110,6 +114,7 @@ function homeDashboardController(UserService, $http, RadService, $scope) {
 
   // for tab pengaturan rad
   vm.newTahun = '';
+  vm.newCategory = '';
 
   function clickFormAddYear(tahun) {
     RadService.addTahun(tahun);
@@ -124,6 +129,17 @@ function homeDashboardController(UserService, $http, RadService, $scope) {
 
   };
   vm.clickFormAddYear = clickFormAddYear;
+
+  function clickFormAddCategory(kategori) {
+    RadService.addRadKategori(kategori);
+    setTimeout(function(){
+      $scope.$apply(RadService.getRadKategori().then(function(d){
+        vm.kategoriList = d.data;
+        vm.newCategory = '';
+      }))
+    },1000)
+  }
+  vm.clickFormAddCategory = clickFormAddCategory;
 
   vm.user = getUser();
 

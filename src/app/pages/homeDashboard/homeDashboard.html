@@ -73,11 +73,11 @@
     <md-content class="md-padding">
       <h4 class="md-display-1">Pengaturan RAD</h4>
       <div flex-xs>
+
         <md-card>
           <md-card-title>
             <md-card-title-text>
               <span class="md-headline">Tambahkan Tahun</span>
-              {{vm.tahunList}}
             </md-card-title-text>
           </md-card-title>
           <md-card-content>
@@ -98,8 +98,62 @@
                 </md-input-container>
               </form>
             </div>
+            <div>
+              <span ng-repeat="tahun in vm.tahunList">
+                <md-button class="md-raised" ng-disabled="true" class="md-primary">{{tahun.tahun}}</md-button>
+              </span>
+            </div>
+
           </md-card-content>
         </md-card>
+
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Tambah Kategori</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <div>
+              <form name="addCategoryForm" novalidate aria-label="Add Category" ng-submit="addCategoryForm.$valid && vm.clickFormAddCategory(vm.newCategory)">
+                <div layout="row" flex>
+                  
+                    <md-input-container flex="50">
+                      <label>Kategori: </label>
+                      <input ng-model="vm.newCategory" name="kategori">
+                      <div ng-messages="addCategoryForm.kategori.$error">
+                        <div ng-message="required">Harus diisi.</div>
+                      </div>
+                    </md-input-container>
+                  
+                  <md-input-container>
+                    <md-button type="submit" class="md-primary md-raised" aria-label="submit" ng-disabled="addCategoryForm.$invalid">Tambah</md-button>
+                  </md-input-container>
+                </div>
+              </form>
+            </div>
+            <div>
+              <!--<table class="table">
+                <theader>
+                  <tr>
+                    <td><b>No.</b></td>
+                    <td><b>Kategori</b></td>
+                  </tr>
+                </theader>
+                <tbody>
+                  <tr ng-repeat="kategori in vm.kategoriList">
+                    <td>{{$index+1}}.</td>
+                    <td>{{kategori.kategori}}</td>
+                  </tr>
+                </tbody>
+              </table>-->
+              <span ng-repeat="kategori in vm.kategoriList">
+                <md-button class="md-raised" ng-disabled="true" class="md-primary">{{kategori.kategori}}</md-button>
+              </span>
+            </div>
+          </md-card-content>
+        </md-card>
+
       </div>
     </md-content>
   </md-tab>
