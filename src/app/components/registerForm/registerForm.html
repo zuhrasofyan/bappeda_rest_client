@@ -1,3 +1,50 @@
-<div class="component">
-  <h2>{{$ctrl.text}}</h2>
+<div class="container">
+    <div layout="row" layout-align="center center" style="margin-top: 15px;">
+        
+        <div flex="40" flex-md="60" flex-sm="80" flex-xs="100">
+
+            <md-toolbar class="">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>Form Pendaftaran Akun</span>
+                    </h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+
+            <md-content layout-padding>
+                <form name="registerForm" class="form-horizontal" novalidate ng-submit="registerForm.$valid && vm.clickRegister(vm.formRegister)">      
+                    <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                        <label>Email</label>
+                        <md-icon class="email"><i class="glyphicon glyphicon-envelope"></i></md-icon>
+                        <input required ng-model="vm.formRegister.email" name="email" type="email">
+                        <div ng-messages="vm.registerForm.email.$error" role="alert">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                        <label>Password</label>
+                        <md-icon class="password"><i class="glyphicon glyphicon-lock"></i></md-icon>
+                        <input ng-model="vm.formRegister.password" type="password">
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                        <label>Konfirmasi Password</label>
+                        <md-icon class="password"><i class="glyphicon glyphicon-lock"></i></md-icon>
+                        <input ng-model="vm.formRegister.password2" type="password">
+                    </md-input-container>
+                    <!-- SUBMIT BUTTON -->
+                    <md-input-container layout="column">
+                        <md-button type="submit" ng-disabled="registerForm.$invalid" class="md-raised md-primary" aria-label="Submit" >
+                            <span class="glyphicon glyphicon-flash"></span> Daftar!
+                        </md-button>
+                    </md-input-container>
+                </form>    
+            </md-content>
+
+        </div>
+
+    </div>
 </div>

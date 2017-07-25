@@ -3,6 +3,22 @@ angular
   .service('AuthService', function ($http, $rootScope, store, UserService, authManager, $state){
     var vm = this;
 
+    function submitRegister(userData) {
+      $http.post('http://localhost:1337/register', {
+        email: userData.email,
+        password: userData.password
+      }).then(function(result){
+        if (result.status !== 200) {
+          alert(result.data);
+        } else if (result.status === 200) {
+          alert('user berhasil didaftarkan. \nSilahkan cek email untuk mengaktifkan akun anda \nsebelum anda login.');
+          $state.go('login')
+        } else {
+          alert('Terjadi kesalahan pada server.');
+        }
+      })
+    }
+
     function submitLogin(loginData) {
       $http.post('http://localhost:1337/auth/login', {
         email: loginData.email,
@@ -44,6 +60,7 @@ angular
     }
 
     // register the functions
+    vm.submitRegister = submitRegister;
     vm.submitLogin = submitLogin;
     vm.logout = logout;
 
