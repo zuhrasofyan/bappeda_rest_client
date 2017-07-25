@@ -23,9 +23,11 @@ angular
 
         } else {
           if (result.status === 400) {
-            alert("Email atau password anda salah. Silahkan coba lagi!");
+            alert(result.data.message);
+          } else if (result.status === 401) {
+            alert(result.data.message);
           } else {
-            alert("Server tidak merespon.. Coba lagi beberapa saat atau hubungi admin");
+            alert(result.data.message);
           }         
         // TODO: else check if bad credential (result.status !== 200) return, show notification
         // else {}
