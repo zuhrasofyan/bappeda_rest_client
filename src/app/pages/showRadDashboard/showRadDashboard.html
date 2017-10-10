@@ -34,15 +34,9 @@
 
             </tr>
           </thead>
-          <tbody>
-            <tr md-body ng-repeat="renaksi in data.renaksi" style="white-space:pre-line" md-auto-select>
-              <td md-cell>{{$index+1}}.<br>
-                <md-button class="md-icon-button md-accent" aria-label="More" ng-click="vm.showAdvanced($event, renaksi)" ng-if="vm.user.role !== 'user'">
-                  <i class="glyphicon glyphicon-cog"></i>
-                </md-button>
-                <md-button class="md-icon-button md-accent" aria-label="Bukti" ng-click="vm.showAddBuktiDialog($event, renaksi)">
-                  <i class="glyphicon glyphicon-file"></i>
-                </md-button>
+          <tbody ng-repeat="renaksi in data.renaksi">
+            <tr md-body style="white-space:pre-line" md-auto-select>
+              <td md-cell>{{$index+1}}.
               </td>
               <td md-cell>{{renaksi.masalah}}</td>
               <td md-cell>{{renaksi.rekomendasi}}</td>
@@ -53,6 +47,18 @@
               <td md-cell>{{renaksi.target_this_year}}</td>
               <td md-cell>{{renaksi.status_last_year}}</td>
               <td md-cell>{{renaksi.persentasi_capaian}}%</td>
+            </tr>
+            <tr>
+              <td colspan="7"></td>
+              <td colspan="3">
+                <div style="text-align: right;">
+                    <md-button class="md-primary md-raised" aria-label="Bukti" ng-click="vm.showAddBuktiDialog($event, renaksi)">
+                      <i class="glyphicon glyphicon-file"></i> Bukti
+                    </md-button>
+                    <md-button class="md-warn md-raised" ng-click="vm.showAdvanced($event, renaksi)" ng-if="vm.user.role !== 'user'"><i class="glyphicon glyphicon-pencil"></i> Edit</md-button>
+                    
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
