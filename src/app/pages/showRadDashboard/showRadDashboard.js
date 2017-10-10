@@ -88,7 +88,11 @@ angular
 
       RadService.getSkpdList().then(function(e){
         $ctrl.skpdList = e.data;
-      })
+      });
+
+      RadService.getTahun().then(function(d){
+        $ctrl.tahunList = d.data;
+      });
 
       $ctrl.renaksi = renaksi;
 

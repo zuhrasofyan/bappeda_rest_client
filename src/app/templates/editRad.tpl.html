@@ -15,7 +15,6 @@
         <div>
 
           <form name="editForm" novalidate>
-
             <md-content md-theme="docs-dark" layout-padding>
              <h3>Edit RAD Input {{$ctrl.renaksi.tahun}}</h3>
              <div layout="row" flex>
@@ -29,10 +28,11 @@
                </md-input-container>
 
                <md-input-container flex="15">
+                 
                  <label>Tahun RAD</label>
                  <md-select ng-model="$ctrl.renaksi.tahun">
                    <md-optgroup label="Tahun">
-                     <md-option ng-value="tahun" ng-repeat="tahun in $ctrl.tahunList">{{tahun}}</md-option>
+                     <md-option ng-value="tahun.tahun" ng-repeat="tahun in $ctrl.tahunList">{{tahun.tahun}}</md-option>
                    </md-optgroup>
                  </md-select>
                </md-input-container>
